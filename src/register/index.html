@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Registro Cowllab</title>
+</head>
+<body> 
+    <form>
+     
+        <p>Registre-se</p>
+        <label for="User"> Usuário: <input id="User" type="text" name="User" required placeholder="(Nome que todos vão ver)"></label>
+
+        <label for="RealName"> Nome Inteiro (Real): <input id="Realname" type="text" name="Realname" required placeholder="(Essa informação aparecerá apenas para os professores)"></label>
+
+        <label for="CPF"> CPF: <input id="CPF" type="number" name="CPF" placeholder="000.000.000-00" required></label>
+
+        <label for="Email"> E-mail: <input id="Email" type="email" name="Email" required></label>
+        
+      
+        <label for="curso">Estou cursando:</label>
+        <select id="curso" name="curso">
+  <option value="Adm">Administração</option>
+  <option value="CienciasBio">Ciências Biológicas</option>
+  <option value="Cienciascont">Ciêncisa Contábeis</option>
+  <option value="Direito">Direito</option>
+  <option value="Design">Design</option>
+  <option value="EDfisica">Educação Física</option>
+  <option value="EngABI">Engenharia ABI</option>
+  <option value="EngAmbiental">Engenharia Ambiental</option>
+  <option value="EngCivil">Engenharia Civil</option>
+  <option value="EngProd">Engenharia de Produção</option>
+  <option value="EngEle">Engenharia Elétrica</option>
+  <option value="EngMec">Engenharia Mecânica</option>
+  <option value="Enf">Enfermagem</option>
+  <option value="Med">Medicina</option>
+  <option value="Nutri">Nutrição</option>
+  <option value="Odonto">Odontologia</option>
+  <option value="PubProp">Publicidade e Propaganda</option>
+  <option value="ServSocial">Serviço Social</option>
+  <option value="sistemasInformacao">Sistemas de Informação</option>
+  <option value="TecEnf">Técnico em Enfermagem</option>
+  
+       </select>
+
+
+        <br> <br> <br> <br> <br>
+    
+        <label for="Senha">Senha: <input id="Senha" type="password" name="Senha" required></label>   
+        
+        <label for="confirmação de senha">Confirme a sua senha: <input id="ConfirmSenha" type="password" name="ConfirmSenha" required placeholder="(Repita sua senha)"> </label> 
+        
+
+        <button type="submit">Registre-se</button>
+
+        <a href="#">Esqueci minha senha </a>
+    
+    </form>
+
+</body>
+</html>
