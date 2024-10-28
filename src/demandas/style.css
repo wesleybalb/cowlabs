@@ -22,7 +22,6 @@ main {
 }
 
 .card-body {
-  height: 280px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -190,5 +189,10 @@ main {
 .img-320 {
   
   height: 415px;
-
 }
+
+#imagem-user{
+  width: 30px;
+}
+
+

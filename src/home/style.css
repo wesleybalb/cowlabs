@@ -142,11 +142,18 @@ textarea#message {
   resize: none;
 }
 
+.text-colored{
+  color: #000000;
+  display: inline;
+}
 
+.social-links li{
+  display: inline;
+  list-style: none;
+}
 
-
-footer > div {
-  padding: 25px;
+.social-links a{
+  text-decoration: none;
 }
 
 
