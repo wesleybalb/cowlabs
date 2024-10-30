@@ -9,30 +9,24 @@ $(document).ready(function() {
         const imagemInput = $('#imagemDemanda')[0].files[0]
         const imagemURL = imagemInput ? URL.createObjectURL(imagemInput) : 'https://via.placeholder.com/320x320'
 
-        
-        if (!novaDemanda || !textoDemanda) {
-            alert('Por favor, preencha todos os campos obrigatórios.')
-            return;
-        }
-
-
-        const novoCard = `
-            <div class="col-md-3">
-                <div class="card shadow-sm">
-                    <div class="card-body d-flex flex-column">
-                    <strong>
-                    <img id="imagem-user" src="/assets/img/ImagemUser.jpg" class="rounded-circle" alt="">
-                    "Nome do usuário    "
-                    </strong>
-                        <h4>${novaDemanda}</h4>
-                        <p class="card-text mb-0">${textoDemanda}</p>
+            const novoCard = `
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body d-flex flex-column">
+                        <strong>
+                        <img id="imagem-user" src="/assets/img/ImagemUser.jpg" class="rounded-circle" alt="">
+                        "Nome do usuário    "
+                        </strong>
+                            <h4>${novaDemanda}</h4>
+                            <p class="card-text mb-0">${textoDemanda}</p>
+                        </div>
+                        <img src="${imagemURL}" alt="" class="card-img-bottom">
                     </div>
-                    <img src="${imagemURL}" alt="" class="card-img-bottom">
                 </div>
-            </div>
-        `
+            `
 
-        $('.album .row').append(novoCard)
+        //prepend faz com que a postagem mais rescente aparecça primeiro
+        $('.album .row').prepend(novoCard)
         $('#novaDemanda').val('')
         $('#textoDemanda').val('')
         $('#imagemDemanda').val('')
