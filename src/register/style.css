@@ -135,4 +135,47 @@ a + a {
     background-color: #555;
 }
 
-    
+
+header{
+    margin: 0;
+    padding: 0;
+    background-color: #006EFF;
+    width: 100%;
+    display: grid;
+
+    button{
+        width: 50px;
+    }
+
+    a{
+        text-align: left;
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: large;
+        position: relative;
+        padding-bottom: 30px;
+    }
+
+}
+
+#btn_pesq{
+    height: 50px;
+    width: 50px;
+}
+
+#footer{
+    background-color: #006EFF;
+    width: 100%;
+    height: 200px;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    a{
+        text-decoration: none;
+        color: #fff;
+    }
+    p{
+        color: #fff;
+    }
+}
