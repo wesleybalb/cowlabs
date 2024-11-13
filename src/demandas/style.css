@@ -128,6 +128,7 @@ main {
 
 
 .album {
+  height: 500px;
   background-color: #f9f9f9;
 }
 
@@ -184,6 +185,43 @@ main {
 #imagem-user{
   width: 30px;
 }
+
+.text-colored{
+  color: #fff;
+  display: inline;
+}
+
+.social-links,
+strong{
+  display: block;
+  text-align: center;
+}
+
+.social-links li{
+  display: inline;
+  list-style: none;
+}
+
+.social-links a{
+  text-decoration: none;
+}
+
+.cor-footer{
+  color: #fff;
+}
+
+i{
+  font-size: 20px;
+}
+
+#rodape {
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+
+
 
 
 

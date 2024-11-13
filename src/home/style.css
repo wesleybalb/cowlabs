@@ -147,6 +147,12 @@ textarea#message {
   display: inline;
 }
 
+.social-links,
+strong{
+  display: block;
+  text-align: center;
+}
+
 .social-links li{
   display: inline;
   list-style: none;
@@ -154,6 +160,14 @@ textarea#message {
 
 .social-links a{
   text-decoration: none;
+}
+
+.cor-footer{
+  color: #fff;
+}
+
+i{
+  font-size: 20px;
 }
 
 
