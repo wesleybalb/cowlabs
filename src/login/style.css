@@ -1,6 +1,6 @@
 body { 
     min-height: 100vh;
-    background-color: #0d8bd9;
+    background-color: #006eff;
     font-family: Arial, sans-serif;
     /*display: grid;*/
     place-items: center;
@@ -66,7 +66,7 @@ label {
 }
 
 label:focus-within {
-    color: #0d8bd9;
+    color: #006eff;
 }
 
 input {
@@ -82,7 +82,7 @@ input {
 
 input:focus {
     outline: none;
-    border-color: #0d8bd9;
+    border-color: #006eff;
 }
 
 button {
@@ -93,7 +93,7 @@ button {
     width: 100%;
     padding: 1rem;
     cursor: pointer;
-    background: #0d8bd9; 
+    background: #006eff; 
     color: #fff; 
     border: none; 
     border-radius: 4px;
@@ -109,7 +109,7 @@ button:focus {
 
 a {
     text-decoration: none;
-    color: #0d8bd9;
+    color: #006eff;
     font-size: 0.875rem;
     font-weight: 600;
     transition: color 0.3s;
@@ -161,16 +161,16 @@ header{
     position: static;
     display: inline;
     text-align: justify;
-    color: #0d8bd9;
+    color: #006eff;
     justify-content: center;
     
     a{
         text-decoration: none;
-        color: #0d8bd9;
+        color: #006eff;
     }
     p, #container{
         display: grid;
-        color: #0d8bd9;
+        color: #006eff;
         justify-content: center;
         align-items: center;
         text-align: center;
