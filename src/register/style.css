@@ -179,9 +179,7 @@ header{
         justify-content: center;
         align-items: center;
         text-align: center;
-        align-self: center;
-   
-        
+        align-self: center;   
     }
     ul{
         padding-top: 0px;
@@ -190,8 +188,6 @@ header{
         text-align: center;
         align-items: center;
         justify-content: center;
-       
-
     }
 
 }
