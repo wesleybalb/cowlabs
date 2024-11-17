@@ -1,51 +1,61 @@
-
+/* Reseta as margens e o padding para o body e html */
 body, html {
   margin: 0;
   padding: 0;
 }
 
+/* Remove o padding superior do main */
 main {
   padding-top: 0;
 }
 
+/* Estilos para o nome da marca, usando fonte personalizada */
 .navbar-brand {
   font-family: 'JetBrains Mono', monospace;
 }
+
+/* Estilos para o parágrafo na seção .banner-home */
 .banner-home > div > p {
   width: 50%;
   color: #242424;
   font-size: 19px;
 }
 
+/* Define o tamanho da imagem do logo */
 .logo-img {
   width: 8%;
 }
 
+/* Estilo para o corpo do card, com transições */
 .card-body {
   height: 280px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Efeito de hover nos cards */
 .card-body:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
+/* Estilo para o grupo de botões dentro dos cards */
 .btn-group {
   display: flex;
   justify-content: space-between;
   gap: 10px;
 }
 
+/* Estilo para o texto azul */
 .blue-text {
   color: #006eff;
 }
 
+/* Definindo o fundo azul para a classe .bg-blue */
 .bg-blue {
   background-color: #006eff;
 }
 
-
+/* Estilos gerais para os botões */
 .btn:link,
 .btn:visited {
   text-transform: uppercase;
@@ -56,40 +66,44 @@ main {
   transition: all 0.2s;
 }
 
+/* Efeito de hover nos botões */
 .btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* Efeito de click nos botões */
 .btn:active {
   transform: translateY(-1px);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-
+/* Estilo do botão .btn-primary ao passar o mouse */
 .btn-primary:hover {
   background-color: #0056d6;
   border-color: #0056d6;
 }
 
+/* Estilo do botão personalizado .btn-third */
 .btn-third {
   background-color: #0056d6;
   border-color: #0056d6;
 }
 
+/* Estilo de hover para o botão .btn-outllineprimary */
 .btn-outllineprimary:hover {
   background-color: #0056d6;
   border-color: #0056d6;
 }
 
-
+/* Animação para o botão .btn-animated */
 .btn-animated {
   animation: moveInBottom 5s ease-out;
   animation-fill-mode: backwards;
 }
 
-
-.btn-primary{
+/* Estilo do botão fixo no canto inferior direito */
+.btn-primary {
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -99,12 +113,12 @@ main {
   color: white;
 }
 
-
-
+/* Estilo dos grupos de formulários */
 .grupo-formulario {
   margin-bottom: 1em;
 }
 
+/* Estilo de texto centralizado e títulos em .my-4 */
 .text-center,
 .my-4 h2 {
   color: #006eff;
@@ -112,6 +126,7 @@ main {
   font-style: italic;
 }
 
+/* Estilo para os campos de formulário */
 .controle-form {
   border-radius: 8px;
   border: 1px solid #006eff;
@@ -119,21 +134,24 @@ main {
   height: 50px;
 }
 
+/* Padding adicional para inputs */
 .my-4 input {
   padding-left: 20px;
 }
 
+/* Estilo do modal, com flexbox */
 #modalDemanda .modal-body {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
+/* Alinhamento dos botões do rodapé do modal */
 #modalDemanda .modal-footer {
   justify-content: space-between;
 }
 
-
+/* Definição da animação de entrada do modal */
 @keyframes moveInBottom {
   0% {
     opacity: 0;
@@ -145,16 +163,18 @@ main {
   }
 }
 
-
+/* Estilo para o fundo da seção .album */
 .album {
   background-color: #f9f9f9;
 }
 
+/* Estilo para o título da seção .album */
 .album h2 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
 }
 
+/* Estilo para o card */
 .card {
   margin-bottom: 30px;
   border: none;
@@ -162,33 +182,36 @@ main {
   transition: box-shadow 0.3s ease;
 }
 
+/* Efeito de hover no card */
 .card:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
+/* Estilo do título do card */
 .card-body h4 {
   margin-bottom: 15px;
 }
 
+/* Estilo do modal, centralizado */
 .modal-dialog-centered {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* Estilo do cabeçalho do modal */
 .modal-header {
   background-color: #006eff;
   color: #fff;
 }
 
+/* Estilo para o botão primário no rodapé do modal */
 .modal-footer .btn-primary {
   background-color: #006eff;
   border: none;
 }
 
-
+/* Estilo para imagens dentro do card */
 .img-320 {
-  
   height: 415px;
-
 }

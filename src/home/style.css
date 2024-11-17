@@ -1,88 +1,100 @@
-
+/* Remove as margens e o preenchimento padrão do body e html */
 body, html {
   margin: 0;
   padding: 0;
 }
 
+/* Remove o espaçamento superior do elemento main */
 main {
   padding-top: 0;
 }
 
+/* Define cor cinza-escuro para textos */
 .text-dark-gray {
   color: #242424;
 }
 
+/* Define cor azul e fonte específica para textos destacados */
 .blue-text {
   color: #006eff;
   font-family: 'JetBrains Mono', monospace;
 }
 
+/* Define cor de fundo azul */
 .bg-blue {
   background-color: #006eff;
 }
 
+/* Aplica uma fonte personalizada ao título da barra de navegação */
 .navbar-brand {
   font-family: 'JetBrains Mono', monospace;
 }
 
-
+/* Estiliza o banner da página inicial */
 .banner-home {
   margin-bottom: 0;
-  height: 100vh;
+  height: 100vh; /* Ocupa a altura total da janela */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 50px; 
-  background-image: url(../../assets/img/banner-home.png);
+  padding: 0 50px; /* Adiciona espaçamento lateral */
+  background-image: url(../../assets/img/banner-home.png); /* Define a imagem de fundo */
   background-repeat: no-repeat;
-  background-size: contain;
-  background-position: right;
+  background-size: contain; /* Garante que a imagem caiba no espaço disponível */
+  background-position: right; /* Alinha a imagem à direita */
 }
 
+/* Estiliza o título no banner com uma fonte específica e dimensões */
 .h1-title-montserrat {
   font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: 800;
   font-size: 60px;
-  width: 50%;
+  width: 50%; /* Define metade da largura para o título */
   line-height: 1;
   letter-spacing: 0;
 }
 
+/* Define largura específica para o texto no banner */
 .banner-home .content-text {
   width: 50%;
 }
 
+/* Define largura específica para a imagem no banner */
 .banner-home .content-image {
   width: 40%;
 }
 
+/* Estiliza imagens no banner para serem responsivas */
 .banner-home img {
   max-width: 100%;
   height: auto;
 }
 
-
+/* Define estilo geral para botões */
 .btn:link,
 .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 15px 40px;
   display: inline-block;
-  border-radius: 100px;
-  transition: all 0.2s;
+  border-radius: 100px; /* Torna os botões completamente arredondados */
+  transition: all 0.2s; /* Adiciona transição suave */
 }
 
+/* Adiciona efeito de hover nos botões */
 .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px); /* Move o botão para cima */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Adiciona sombra */
 }
 
+/* Adiciona efeito de clique nos botões */
 .btn:active {
   transform: translateY(-1px);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Estilo específico para botões primários */
 .btn-primary {
   background-color: #006eff;
   border-color: #006eff;
@@ -93,6 +105,7 @@ main {
   border-color: #0056d6;
 }
 
+/* Estilo para botões brancos */
 .btn-white {
   background-color: #fff;
   color: #777;
@@ -102,18 +115,19 @@ main {
   background-color: #f1f1f1;
 }
 
+/* Animação personalizada para botões */
 .btn-animated {
   animation: moveInBottom 5s ease-out;
   animation-fill-mode: backwards;
 }
 
-
+/* Estilo para botão fixo no canto inferior direito */
 .btn-bottom-right {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 1000;
-  border-radius: 50%; 
+  z-index: 1000; /* Garante que o botão fique sobre outros elementos */
+  border-radius: 50%; /* Botão circular */
   padding: 15px;
   background-color: #006eff;
   color: white;
@@ -123,33 +137,34 @@ main {
   background-color: #0056d6;
 }
 
-
+/* Estilo para a seção de contato */
 #contact {
   padding: 3rem 0;
 }
 
+/* Margem inferior para os grupos de formulários */
 .form-group {
   margin-bottom: 1.5rem;
 }
 
+/* Estilo para campos de formulário */
 .form-control {
   height: 45px;
   border-radius: 0.25rem;
   border: 1px solid #ccc;
 }
 
+/* Impede o redimensionamento da caixa de mensagem */
 textarea#message {
   resize: none;
 }
 
-
-
-
+/* Padding para o rodapé */
 footer > div {
   padding: 25px;
 }
 
-
+/* Animação para elementos que entram de baixo */
 @keyframes moveInBottom {
   0% {
     opacity: 0;

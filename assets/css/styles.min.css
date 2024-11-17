@@ -1,3 +1,4 @@
+/* Estiliza o botão de alternância da barra de navegação */
 .navbar-toogler {
   padding: 0.25rem 0.75rem;
   font-size: 1.25rem;
@@ -6,10 +7,14 @@
   border: 1px solid transparent;
   border-radius: 0.25rem;
 }
+
+/* Estiliza o botão ao passar o mouse ou ao receber foco */
 .navbar-toggler:focus,
 .navbar-toggler:hover {
   text-decoration: none;
 }
+
+/* Define o ícone do botão de alternância */
 .navbar-toggler-icon {
   display: inline-block;
   width: 1.5em;
