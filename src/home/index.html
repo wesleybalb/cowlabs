@@ -12,7 +12,7 @@
     <link rel="shortcut icon" href="https://cowlabs.com.br/assets/img/favicon.ico" type="image/favicon">
   </head>
   <body>
-    <header>
+    <header id="cabacalho">
       <div class="navbar navbar-dark bg-blue shadow-sm">
         <div class="container d-flex justify-content-between">
           <a class="navbar-brand d-flex align-items-center" href="https://cowlabs.com.br/src/home/index.htm" style="font-weight: bold;">
@@ -42,7 +42,7 @@
                   Aqui, você pode colaborar em projetos, receber ajuda e ganhar certificações por suas contribuições. Nossa missão é promover a colaboração e o aprendizado prático dentro da comunidade acadêmica do UniFOA.
                 </p>
                 <p>
-                  <a class="btn btn-primary my-2" href="../login/index.html">Comece Agora</a>
+                  <a class="btn btn-outline-primary" href="../login/index.html">Comece Agora</a>
                 </p>
                 
               </div>
@@ -55,40 +55,49 @@
           </div>
         </div>
       </section>
-      <section id="contact" class="py-5 bg-light">
-        <div class="container">
-          <h2 class="text-center mb-4">Fale Conosco</h2>
-          <p class="text-center lead text-dark-gray">
-            Entre em contato com o nosso time de suporte, caso encontre alguma dificuldade em nosso site. <br> Entraremos em contato tão logo seja possível analisar sua mensagem.
-          </p>
-          <div class="row">
-            <div class="col-md-8 mx-auto">
-              <form>
-                <div class="form-group">
-                  <label for="nome">Seu Nome</label>
-                  <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu Nome" />
+      <div data-bs-spy="scroll" data-bs-target="cabecalho">
+        <section id="contact" class="py-4 bg-light  ">
+          <div class="container ">
+              <div class="row">
+                  <div class="col-12">
+                      <p class="text-center text-dark-gray lead" ><a class="btn bi-chat-dots-fill blue-text btn-outline-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> Fale Conosco</a></p>
+        
+                  </div>
+              </div>
+            <div class="collapse" id="collapseExample"  >
+                <p class="text-center lead text-dark-gray ">
+                  Entre em contato com o nosso time de suporte, caso encontre alguma dificuldade em nosso site. <br> Entraremos em contato tão logo seja possível analisar sua mensagem.
+                </p>
+                <div class="row ">
+                  <div class="col-md-8 mx-auto">
+                    <form>
+                      <div class="form-group">
+                        <label for="nome">Seu Nome</label>
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu Nome" />
+                      </div>
+                      <div class="form-group">
+                        <label for="email">Seu E-mail</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Seu E-mail" />
+                      </div>
+                      <div class="form-group">
+                        <label for="telefone">Seu Telefone (opcional)</label>
+                        <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="Seu Telefone" />
+                      </div>
+                      <div class="form-group">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea class="form-control" id="mensagem" name="mensagem" rows="4" placeholder="Sua Mensagem"></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-outline-primary">Enviar</button>
+                      <!-- usado para mensagem de alerta com plugins do Jquery!! -->
+                      <div id="alerta" class="alert alert-danger d-none mt-3"></div>
+                      <div id="success" class="alert alert-success d-none mt-3"></div>
+                    </form>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="email">Seu E-mail</label>
-                  <input type="email" class="form-control" id="email" name="email" placeholder="Seu E-mail" />
-                </div>
-                <div class="form-group">
-                  <label for="telefone">Seu Telefone (opcional)</label>
-                  <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="Seu Telefone" />
-                </div>
-                <div class="form-group">
-                  <label for="mensagem">Mensagem</label>
-                  <textarea class="form-control" id="mensagem" name="mensagem" rows="4" placeholder="Sua Mensagem"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
-                <!-- usado para mensagem de alerta com plugins do Jquery!! -->
-                <div id="alerta" class="alert alert-danger d-none mt-3"></div>
-                <div id="success" class="alert alert-success d-none mt-3"></div>
-              </form>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
     <section id="rodape" class="pt-3 pb-3 bg-blue">
       <footer>
