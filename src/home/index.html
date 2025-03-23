@@ -11,38 +11,91 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   </head>
   <body>
-    <header>
-      <div class="navbar navbar-dark bg-blue shadow-sm">
-        <div class="container d-flex justify-content-between">
-          <a class="navbar-brand d-flex align-items-center" href="https://cowlabs.com.br/src/home/index.htm" style="font-weight: bold;">
-            CowLabs
+    <div class="container" id="cabecalho">
+      <header class="bg-primary-subtle fixed-top d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <div class="col-md-3 mb-2 mb-md-0">
+          <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+            <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
           </a>
-          <div class="dropdown">
-            <button  class="btn navbar-toggler dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="bi bi-person-circle"></i>
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="../login/index.html">Login</a>
-              <a class="dropdown-item" href="../register/index.html">Registre-se</a>
-            </div>
-          </div>
         </div>
-      </div>
-    </header>
-    <main role="main">
+
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0" id="navbarScrollSpy">
+          <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
+          <li><a href="#faqs" class="nav-link px-2">FAQs</a></li>
+          <li><a href="#sobre" class="nav-link px-2">Sobre</a></li>
+          <li><a href="#contact" class="nav-link px-2">Fale Conosco</a></li>
+        </ul>
+
+        <div class="col-md-3 text-end">
+          <button type="button" onclick="" class="btn btn-outline-primary me-2">Login</button>
+        </div>
+      </header>
+    </div>
+
+    <main role="main" class="pt-5 mt-5">
       <section class="jumbotron text-left bg-white container">
         <div class="row">
-          <div class=" col-md-6">
+          <div class="col-lg-6">
             <div class="container d-flex align-items-center pt-5">
               <div class="content-text">
                 <h1 class="h1-title-montserrat">Bem vindo ao <span class="blue-text">CowLabs</span></h1>
-                <p class="lead text-dark-gray">Postar e atender demandas acadêmicas nunca foi tão fácil.</p>
-                <p class="lead text-dark-gray">
-                  Aqui, você pode colaborar em projetos, receber ajuda e ganhar certificações por suas contribuições. Nossa missão é promover a colaboração e o aprendizado prático dentro da comunidade acadêmica do UniFOA.
+                <h2>🎓 Conecte-se. Colabore. Cresça!</h2>
+                <p>Você já teve dificuldade em encontrar ajuda para algum projeto ou trabalho que dependesse de conhecimentos que não fazem parte do seu ramo?</p>
+                <p>Já imaginou um espaço onde suas ideias ganham vida, você encontra ajuda para desafios acadêmicos, pode exercitar seus conhecimentos e ainda pode receber horas de atividades complementares por suas contribuições? Aqui, você pode!</p>
+                <p>Somos a primeira plataforma universitária colaborativa feita para os alunos do UniFOA que querem aprender na prática, compartilhar conhecimento e construir algo incrível juntos.</p>
+                <p>🚀 Publique em nossa comunidade seus desafios acadêmicos, como pedidos de ajuda para projetos, trabalhos e tarefas que precisam de contribuições de outros alunos, participe de projetos e troque experiências com outros estudantes. Aqui, cada colaboração conta para o seu futuro!</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <img src="/assets/img/banner-home.png" alt="" class="w-100">
+          </div>
+        </div>
+        <p class="justify_center">
+          <a class="btn btn-outline-primary" href="../login/index.html">Junte-se a nós!</a>
+        </p>
+      </section>
+      <div data-bs-spy="scroll" data-bs-target="#navbarScrollSpy" data-bs-offset="100" tabindex="0">
+        <section id="contact" class="py-4 bg-light">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <p class="text-center text-dark-gray lead">
+                  <a class="btn bi-chat-dots-fill blue-text btn-outline-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> Fale Conosco</a>
                 </p>
-                <p>
-                  <a class="btn btn-primary my-2" href="../login/index.html">Comece Agora</a>
-                </p>
+              </div>
+            </div>
+            <div class="collapse" id="collapseExample">
+              <p class="text-center lead text-dark-gray">
+                Entre em contato com o nosso time de suporte, caso encontre alguma dificuldade em nosso site. <br> Entraremos em contato tão logo seja possível analisar sua mensagem.
+              </p>
+              <div class="row">
+                <div class="col-md-8 mx-auto">
+                  <form>
+                    <div class="form-group">
+                      <label for="nome">Seu Nome</label>
+                      <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu Nome" />
+                    </div>
+                    <div class="form-group">
+                      <label for="email">Seu E-mail</label>
+                      <input type="email" class="form-control" id="email" name="email" placeholder="Seu E-mail" />
+                    </div>
+                    <div class="form-group">
+                      <label for="telefone">Seu Telefone (opcional)</label>
+                      <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="Seu Telefone" />
+                    </div>
+                    <div class="form-group">
+                      <label for="mensagem">Mensagem</label>
+                      <textarea class="form-control" id="mensagem" name="mensagem" rows="4" placeholder="Sua Mensagem"></textarea>
+                    </div>
+                    <div class="justify_center">
+                      <button type="submit" class="btn btn-outline-primary" id="forms_btn">Enviar</button>
+                    </div>
+                    <div id="alerta" class="alert alert-danger d-none mt-3"></div>
+                    <div id="success" class="alert alert-success d-none mt-3"></div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
@@ -86,43 +139,19 @@
         </div>
       </section>
     </main>
+
     <section id="rodape" class="pt-3 pb-3 bg-blue">
       <div class="container">
-          <div class="row">
-              <div class="col-md-6">
-              <strong class=" fs-4 text-center ">
-                  <i class="bi bi-hand-thumbs-up"></i>
-                  Siga-nos nas redes sociais </strong>
-                  <ul class="social-links pt-2 ">
-                      <li class="fs-1 p-3">
-                          <a href="https://www.facebook.com/">
-                              <i class="bi bi-facebook text-colored"></i>
-                          </a>
-                      </li>
-                      <li class="fs-1 p-3 ">
-                          <a href="https://www.instagram.com/">
-                              <i class="bi bi-instagram text-colored"></i>
-                          </a>
-                      </li>
-                      <li class="fs-1 p-3 ">
-                        <a href="https://www.linkedin.com/">
-                          <i class="bi bi-linkedin text-colored"></i>
-                        </a>
-                    </li>
-                    <li class="fs-1 p-3 ">
-                      <a href="https://www.twitter.com/">
-                        <i class="bi bi-twitter-x text-colored"></i>
-                      </a>
-                  </li>
-                  </ul>
-              </div>
-              <div class="col-md-6">
-                  <strong class="fs-4">© 2024 CowLabs. Todos os direitos reservados. </strong>
-                      
-                  </div>
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <p class="col-md-4 mb-0 text-body-secondary">&copy; 2025 cowlabs , Todos direitos reservados.</p>
+          <div class="nav col-md-5">
+            <i class="bi bi-geo-alt"></i>
+            <p class="mt-1 ms-2 text-body-secondary">Rua da Criatividade, nº 42 – Bairro das Ideias, Universo Web – BR</p>
           </div>
+        </footer>
       </div>
-  </section>
+    </section>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="/PluginsJQUERY/jquery.mask.min.js"></script>

@@ -4,6 +4,12 @@ body, html {
   padding: 0;
 }
 
+.nav-link.active {
+  color: #0d6efd !important;
+  font-weight: bold;
+  border-bottom: 2px solid #0d6efd;
+}
+
 main {
   padding-top: 0;
 }
