@@ -16,16 +16,16 @@ $(document).ready(function() {
     })
 })
 
-// document.getElementById('login-form').addEventListener('submit', function(event) {
-//     event.preventDefault(); 
+document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault(); 
     
  
-//     const user = document.getElementById('user').value;
-//     const password = document.getElementById('password').value;
+    const user = document.getElementById('user').value;
+    const password = document.getElementById('password').value;
 
-//     if (user && password) {
-//         window.location.href = '../demandas/index.html';
-//     } else {
-//         alert('Por favor, preencha todos os campos.');
-//     }
-// });
+    if (user && password) {
+        window.location.href = '../demandas/index.html';
+    } else {
+        alert('Por favor, preencha todos os campos.');
+    }
+});

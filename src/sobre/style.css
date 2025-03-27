@@ -145,6 +145,19 @@ main {
   justify-content: center;
 }
 
+.personal_btn{
+  background-color: #0d6efd;
+  border: white solid 2px;
+  color: white;
+  border-radius: 30px;
+  padding: 0.7rem 2rem;
+}
+
+.personal_btn:hover{
+  background-color: white ;
+  border:  white solid 2px;
+  color:  #0d6efd ;
+}
 
 #contact {
   padding: 3rem 0;

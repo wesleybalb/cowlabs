@@ -5,37 +5,38 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
     <title>CowLabs UniFOA</title>
+    <link rel="shortcut icon" href="https://cowlabs.com.br/assets/img/favicon.ico" type="image/favicon">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css" />
-    <link rel="shortcut icon" href="https://cowlabs.com.br/assets/img/favicon.ico" type="image/favicon">
+    <link rel="stylesheet" href="/src/css/default.css">
 </head>
 <body>
-    <header class="sticky-md-top">
-        <div class="navbar navbar-dark bg-blue shadow-sm">
-            <nav class="container d-flex justify-content-between">
-                <a class="navbar-brand d-flex align-items-center fw-bold" href="https://cowlabs.com.br/src/home/index.htm">CowLabs</a>
-                <div class="d-flex align-items-center">
-                    <input class="form-control" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
-                    <button class=" m-2 btn btn-outline-light" type="submit">
-                        <i class="fas fa-search"></i>
-                    </button>
-                    <div class="dropdown ms-2">
-                        <button class="btn navbar-toggler dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-user-circle"></i>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="../login/index.html">Login</a>
-                            <a class="dropdown-item" href="../register/index.html">Registre-se</a>
-                        </div>
-                    </div>
-                </div>
-            </nav>
+    <header class="sticky-md-top bg-primary">
+        <div class="container " id="cabecalho">
+            <header class="d-flex  bg-primary flex-wrap align-items-center justify-content-center justify-content-md-between py-3">
+              <div class="col-md-3 mb-2 mb-md-0">
+                <a class="navbar-brand text-light d-flex align-items-center" href="https://cowlabs.com.br/src/home/index.htm" style="font-weight: bold;">
+                  CowLabs
+                </a>
+              </div>
+              <ul class=" text-white nav col-12 col-md-auto mb-2 justify-content-center mb-md-0" id="navbarScrollSpy">
+                <li><a href="#" class=" nav-link px-2 text-white">Home</a></li>
+                <li><a href="/src/faq/index.html" class="nav-link text-white  px-2">FAQs</a></li>
+                <li><a href="/src/sobre/index.html" class="nav-link text-white  px-2">Sobre</a></li>
+                <li><a href="#contact" class="nav-link text-white  px-2">Fale Conosco</a></li>
+              </ul>
+              <div class="col-md-3 text-end">
+                <button type="button" onclick="" class="btn personal_btn me-2">Perfil</button>
+              </div>
+            </header>
+          </div>
         </div>
     </header>
+    
     <div class="modal fade" id="modalDemanda" tabindex="-1" aria-labelledby="modalDemandaLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -64,7 +65,7 @@
         </div>
     </div>
     <div class="album ">
-        <div class="container">
+        <div class="container pt-4">
             <h2 class="text-center">Colabore com a galera</h2>
             <div class="d-flex justify-content-center mb-4">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDemanda">
@@ -101,45 +102,39 @@
         
     </div>
     
-    <section id="rodape" class=" bg-blue">
-        <footer class="container">
-            <div class="row">
-                <div class="col-12 cor-footer">
-                  <ul class="social-links">
-                    <li>
-                      <strong class="fs-4">© 2024 CowLabs - Todos os direitos reservados. </strong>
-                    </li>
-                  </ul>
-                <strong class=" fs-4 text-center cor-footer ">
-                    <i class="bi bi-hand-thumbs-up"></i>
-                    Siga-nos nas redes sociais </strong>
-                    <ul class="social-links pt-2 ">
-                        <li class="fs-1 p-3">
-                            <a href="https://www.facebook.com/">
-                                <i class="bi bi-facebook text-colored"></i>
-                            </a>
-                        </li>
-                        <li class="fs-1 p-3 ">
-                            <a href="https://www.instagram.com/">
-                                <i class="bi bi-instagram text-colored"></i>
-                            </a>
-                        </li>
-                        <li class="fs-1 p-3 ">
-                          <a href="https://www.linkedin.com/">
-                            <i class="bi bi-linkedin text-colored"></i>
-                          </a>
-                      </li>
-                      <li class="fs-1 p-3 ">
-                        <a href="https://www.twitter.com/">
-                          <i class="bi bi-twitter-x text-colored"></i>
-                        </a>
-                    </li>
-                    </ul>
-                </div>
-            </div>
-
+<!-- footer início -->
+    <section id="rodape" class="pt-3 pb-3 bg-blue ">
+    <div class="container align-middle ">
+      <div class="d-flex align-middle flex-wrap justify-content-between align-items-center border-bottom">
+          <div class="col-md-4 d-flex text-light align-items-center align-middle">
+            <a class="navbar-brand align-middle d-flex align-items-center" href="https://cowlabs.com.br/src/home/index.htm" style="font-weight: bold;"> CowLabs
+            </a>          
+          </div>
+      
+          <ul class="list-unstyled pt-3  align-middle  d-flex">
+            <li class="ms-3"><a class=" link-body-emphasis" href="#"><i class="bi align-middle text-light bi-twitter-x"></i></a></li>
+            <li class="ms-3"><a class="link-body-emphasis" href="#"><i class="bi align-middle text-light bi-instagram"></i></a></li>
+            <li class="ms-3"><a class="link-body-emphasis" href="#"><i class="bi align-middle  text-light bi-facebook"></i></a></li>
+            <li class="ms-3"><a class="link-body-emphasis" href="#"><i class="bi  align-middle text-light bi-linkedin"></i></a></li>
+            <li class="ms-3"><a class="link-body-emphasis" href="#"><i class="bi align-middle text-light bi-whatsapp"></i></i></a></li>
+            
+          </ul>
         </footer>
+  
+      </div>
+  
+  
+      <footer class="d-flex flex-wrap justify-content-between align-items-center my-4 ">
+        <p class="col-md-4 mb-0  text-body-secondary">&copy; 2025 cowlabs , Todos direitos reservados.</p>
+        <div class="nav col-md-5  justify-content-end">
+          <p class="mt-1 ms-2 bi bi-geo-alt text-body-secondary align-items-center align-middle pt-3 "> Rua da Criatividade, nº 42 – Bairro das Ideias, Universo Web – BR</p>
+          
+          
+        </div>
+      </footer>
+    </div>
     </section>
+  <!-- fim do footer -->
 
 
 
