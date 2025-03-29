@@ -11,7 +11,6 @@ p {
     font-size: 1.5rem;
     font-weight: 700;
     color: #222;
-    margin-bottom: 2.5rem;
 }
 
 section{
@@ -20,7 +19,7 @@ section{
     justify-content: center;
     object-position: center;
     gap: 10px;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
       
     .imgLogo{
         display: flex;
@@ -101,11 +100,7 @@ button {
     transition: background-color 0.25s, color 0.25s; 
 }
 
-button:hover,
-button:focus {
-    outline: none;
-    background: #005f8d;
-}
+
 
 a {
     text-decoration: none;
@@ -152,10 +147,6 @@ header{
 
 }
 
-#btn_pesq{
-    height: 50px;
-    width: 50px;
-}
 
 #underform{
     position: static;
@@ -163,7 +154,11 @@ header{
     text-align: justify;
     color: #006eff;
     justify-content: center;
-    
+    font-size: 12px;
+ 
+    p{
+        font-size: medium;
+    }
     a{
         text-decoration: none;
         color: #006eff;
