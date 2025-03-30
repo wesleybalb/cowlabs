@@ -40,3 +40,79 @@ $(document).ready(function() {
             } 
         })
     })
+
+
+    function inicialization(){
+        if(!localStorage.getItem("RegisterUser")){
+            localStorage.setItem("RegisterUser", JSON.stringify(
+                [
+                    {
+                        name: "WesleyBalbino",
+                        Realname: "Wesley Pinheiro Balbino",
+                        CPF: "00000000000",
+                        email: "202420243@unifoa.edu.br",
+                        curso: "Sistemas de Informação",
+                        Senha: "Raianymeumomo",
+                        Tipo: "Admin"
+                    },
+                    {
+                        name: "LucasAndrade",
+                        Realname: "Lucas Nogueira Andrade",
+                        CPF: "00000000000",
+                        email: "202420312@unifoa.edu.br",
+                        curso: "Sistemas de Informação",
+                        Senha: "202420312",
+                        Tipo: "Admin"
+                    },
+                    {
+                        name: "MarceloReis",
+                        Realname: "Marcelo Ferreira Reis",
+                        CPF: "00000000000",
+                        email: "202420542@unifoa.edu.br",
+                        curso: "Sistemas de Informação",
+                        Senha: "202420542",
+                        Tipo: "Admin"
+                    },
+                    {
+                        name: "PedroVieira",
+                        Realname: "Pedro Vieira Carvalho",
+                        CPF: "00000000000",
+                        email: "202410630@unifoa.edu.br",
+                        curso: "Sistemas de Informação",
+                        Senha: "202410630",
+                        Tipo: "Admin"
+                    },
+                    {
+                        name: "YuriMarch ",
+                        Realname: "Yuri Rocha March",
+                        CPF: "00000000000",
+                        email: "202420752@unifoa.edu.br",
+                        curso: "Sistemas de Informação",
+                        Senha: "202420752",
+                        Tipo: "Admin"
+                    },
+                    {
+                        name: "MestreYoda ",
+                        Realname: "Jedi Master",
+                        CPF: "00000000000",
+                        email: "mestreYoda2@unifoa.edu.br",
+                        curso: "Sistemas de Informação",
+                        Senha: "maytheforcebewithyou",
+                        Tipo: "Professor"
+                    },
+                    {
+                        name: "SkyWalker",
+                        Realname: "LukeSkywalker",
+                        CPF: "00000000000",
+                        email: "skywalker@unifoa.edu.br",
+                        curso: "Sistemas de Informação",
+                        Senha: "r2d2",
+                        Tipo: "Aluno"
+                    },
+                ]
+            ))
+        }
+    }
+    
+    inicialization()
+    
