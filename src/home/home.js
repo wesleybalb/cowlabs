@@ -52,8 +52,13 @@ $(document).ready(function() {
                         CPF: "00000000000",
                         email: "202420243@unifoa.edu.br",
                         curso: "Sistemas de Informação",
-                        Senha: "Raianymeumomo",
-                        Tipo: "Admin"
+                        Senha: "202420243",
+                        Tipo: "Admin",
+                        uf: "uf",
+                        cidade: "cidade",
+                        endereco: "endereco",
+                        numero: "numero",
+                        complemento: "complemento"
                     },
                     {
                         name: "LucasAndrade",
@@ -62,7 +67,12 @@ $(document).ready(function() {
                         email: "202420312@unifoa.edu.br",
                         curso: "Sistemas de Informação",
                         Senha: "202420312",
-                        Tipo: "Admin"
+                        Tipo: "Admin",
+                        uf: "uf",
+                        cidade: "cidade",
+                        endereco: "endereco",
+                        numero: "numero",
+                        complemento: "complemento"
                     },
                     {
                         name: "MarceloReis",
@@ -71,7 +81,12 @@ $(document).ready(function() {
                         email: "202420542@unifoa.edu.br",
                         curso: "Sistemas de Informação",
                         Senha: "202420542",
-                        Tipo: "Admin"
+                        Tipo: "Admin",
+                        uf: "uf",
+                        cidade: "cidade",
+                        endereco: "endereco",
+                        numero: "numero",
+                        complemento: "complemento"
                     },
                     {
                         name: "PedroVieira",
@@ -80,7 +95,12 @@ $(document).ready(function() {
                         email: "202410630@unifoa.edu.br",
                         curso: "Sistemas de Informação",
                         Senha: "202410630",
-                        Tipo: "Admin"
+                        Tipo: "Admin",
+                        uf: "uf",
+                        cidade: "cidade",
+                        endereco: "endereco",
+                        numero: "numero",
+                        complemento: "complemento"
                     },
                     {
                         name: "YuriMarch ",
@@ -89,7 +109,12 @@ $(document).ready(function() {
                         email: "202420752@unifoa.edu.br",
                         curso: "Sistemas de Informação",
                         Senha: "202420752",
-                        Tipo: "Admin"
+                        Tipo: "Admin",
+                        uf: "uf",
+                        cidade: "cidade",
+                        endereco: "endereco",
+                        numero: "numero",
+                        complemento: "complemento"
                     },
                     {
                         name: "MestreYoda ",
@@ -98,7 +123,12 @@ $(document).ready(function() {
                         email: "mestreYoda2@unifoa.edu.br",
                         curso: "Sistemas de Informação",
                         Senha: "maytheforcebewithyou",
-                        Tipo: "Professor"
+                        Tipo: "Professor",
+                        uf: "uf",
+                        cidade: "cidade",
+                        endereco: "endereco",
+                        numero: "numero",
+                        complemento: "complemento"
                     },
                     {
                         name: "SkyWalker",
@@ -107,7 +137,12 @@ $(document).ready(function() {
                         email: "skywalker@unifoa.edu.br",
                         curso: "Sistemas de Informação",
                         Senha: "r2d2",
-                        Tipo: "Aluno"
+                        Tipo: "Aluno",
+                        uf: "uf",
+                        cidade: "cidade",
+                        endereco: "endereco",
+                        numero: "numero",
+                        complemento: "complemento"
                     },
                 ]
             ))

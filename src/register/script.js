@@ -3,8 +3,8 @@
 
 // inseren event listener nos campos trackeados
 document.getElementById("User").addEventListener("change", () => inputCompare("User"));
-document.getElementById("Email").addEventListener("change", () => inputCompare("Email"));
-document.getElementById("CPF").addEventListener("change", () => inputCompare("CPF"));
+// document.getElementById("Email").addEventListener("change", () => inputCompare("Email"));
+// document.getElementById("CPF").addEventListener("change", () => inputCompare("CPF"));
 
 
 // mensagem de erro de poucos caracteres
@@ -24,7 +24,9 @@ function inputCompare(inputId){
     
     const loginMsg = document.getElementById("UserCheckerMsg")
     
+    // checa a length do usuário. 
     if( campoId.id == "User" && campoId.value.length <= minCaract){
+        // mensagem caso seja menor que cinco caracteres
         loginMsg.innerHTML = UserMinCharact
         return;
     }else{
@@ -35,66 +37,55 @@ function inputCompare(inputId){
         
         const FindUser = users.find(p=>p.name == campoId.value)
         
+        // checa se o usuário já existe
         if(FindUser){
             
+            // mensagem informando que o usuário existe
             loginMsg.innerHTML = `
             <div>
                 <p class ="LoginMsgError">Este usuário já existe.</p>
             </div>
             `
         }else{
+            // limpa as informações na div
             loginMsg.innerHTML = ``
         }
     }
 
-    
+}
 
-    if( campoId.id == "" && campoId.value.length <= minCaract){
-        loginMsg.innerHTML = UserMinCharact
-        return;
+
+// vamos fazer uma verificação de CEP com consumo de API
+
+document.querySelector("#CEP").onblur = async function(e){
+    // pegar a informação do usuário
+    const info = document.querySelector("#CEP").value
+    // validação dos dados
+    if(info.length==8 && !isNaN(info)){
+        // criando a constante URL
+        const url = `https://viacep.com.br/ws/${info}/json/`
+        // usando a funçao fetch e pegando a resposta do servidor
+        const response = await fetch(url)
+        // converter essa resposta em padrão JSON
+        const dados = await response.json()
+        
+        console.log(dados)
+
+        // validação do retorno
+        if(dados.erro){
+            alert("CEP inexistente")
+        }else{
+            document.querySelector("#uf").value = dados.uf
+            document.querySelector("#cidade").value = dados.localidade
+            document.querySelector("#endereco").value = dados.logradouro
+            
+            document.querySelector("#numero").focus()
+          
+        }
+        
     }else{
-        loginMsg.innerHTML = ``
-        
-        // recupera as informações do LocalStorage
-        let users = JSON.parse(localStorage.getItem("RegisterUser"));
-        
-        const FindUser = users.find(p=>p.name == campoId.value)
-        
-        if(FindUser){
-            
-            loginMsg.innerHTML = `
-            <div>
-                <p class ="LoginMsgError">Este usuário já existe.</p>
-            </div>
-            `
-        }else{
-            loginMsg.innerHTML = ``
-        }
+        alert("CEP inválido")
     }
-    if( campoId.id == "User" && campoId.value.length <= minCaract){
-        loginMsg.innerHTML = UserMinCharact
-        return;
-    }else{
-        loginMsg.innerHTML = ``
-        
-        // recupera as informações do LocalStorage
-        let users = JSON.parse(localStorage.getItem("RegisterUser"));
-        
-        const FindUser = users.find(p=>p.name == campoId.value)
-        
-        if(FindUser){
-            
-            loginMsg.innerHTML = `
-            <div>
-                <p class ="LoginMsgError">Este usuário já existe.</p>
-            </div>
-            `
-        }else{
-            loginMsg.innerHTML = ``
-        }
-    }
-    
-
 
 }
 
@@ -117,6 +108,12 @@ function register(e){
     const Curso = document.querySelector("#curso").value
     const Senha = document.querySelector("#Senha").value 
     const ConfirmSenha = document.querySelector("#ConfirmSenha").value
+    const uf = document.querySelector("uf").value
+    const cidade = document.querySelector("#cidade").value
+    const endereco = document.querySelector("#endereco").value
+    const numero = document.querySelector("numero").value
+    const complemento = document.querySelector("complemento").value
+
     const InfoUser  = document.querySelector("#InfoUser")
     
     // aviso de que as senhas não conferem
@@ -153,6 +150,12 @@ function register(e){
                 curso: Curso,
                 Senha: Senha,
                 Tipo: "Aluno",
+                uf: uf,
+                cidade: cidade,
+                endereco: endereco,
+                numero: numero,
+                complemento: complemento
+
             };
 
             // gravação do novo usuário ao final do vetor
