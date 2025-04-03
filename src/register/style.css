@@ -39,6 +39,18 @@ input {
     transition:  0.15s linear;
 }
 
+.LoginMsg{
+    font-size: small;
+    background-color: #D1E7DD;
+    color: darkslategrey;
+}
+
+.LoginMsgError{
+    font-size: small;
+    background-color: #F8D7DA;
+    color: darkred;
+}
+
 input:focus {
     outline: none;
     border-color: #0d8bd9;

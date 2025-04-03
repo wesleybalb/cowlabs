@@ -1,3 +1,104 @@
+// antes de realizar o login, temos que verificar se o usuário já existe
+// para isso desativamos o botão de registro e só iremos ativá-lo quando todas as informações de usuário, CPF e e-mail forem novas entradas no banco de dados. Isso previne a existência de dois nomes de usuários iguais, e que duas pessoas tenham mais de uma conta e que sejam enviadas mensagens de recuperação de senha (a serem implementadas futuramente) para uma outra pessoa.
+
+// inseren event listener nos campos trackeados
+document.getElementById("User").addEventListener("change", () => inputCompare("User"));
+document.getElementById("Email").addEventListener("change", () => inputCompare("Email"));
+document.getElementById("CPF").addEventListener("change", () => inputCompare("CPF"));
+
+
+// mensagem de erro de poucos caracteres
+const UserMinCharact = `
+<div>
+<p class ="LoginMsg">O nome do usuário deve ter mais do que cinco caracteres.</p>
+</div>
+`
+
+function inputCompare(inputId){
+    
+    const campoId = document.getElementById(inputId);
+    
+    
+    // primeiro vamos comparar se o usário possui mais do que cinco caracteres. Entendemos que menos do que isso não é um nome razoável
+    const minCaract = 5
+    
+    const loginMsg = document.getElementById("UserCheckerMsg")
+    
+    if( campoId.id == "User" && campoId.value.length <= minCaract){
+        loginMsg.innerHTML = UserMinCharact
+        return;
+    }else{
+        loginMsg.innerHTML = ``
+        
+        // recupera as informações do LocalStorage
+        let users = JSON.parse(localStorage.getItem("RegisterUser"));
+        
+        const FindUser = users.find(p=>p.name == campoId.value)
+        
+        if(FindUser){
+            
+            loginMsg.innerHTML = `
+            <div>
+                <p class ="LoginMsgError">Este usuário já existe.</p>
+            </div>
+            `
+        }else{
+            loginMsg.innerHTML = ``
+        }
+    }
+
+    
+
+    if( campoId.id == "" && campoId.value.length <= minCaract){
+        loginMsg.innerHTML = UserMinCharact
+        return;
+    }else{
+        loginMsg.innerHTML = ``
+        
+        // recupera as informações do LocalStorage
+        let users = JSON.parse(localStorage.getItem("RegisterUser"));
+        
+        const FindUser = users.find(p=>p.name == campoId.value)
+        
+        if(FindUser){
+            
+            loginMsg.innerHTML = `
+            <div>
+                <p class ="LoginMsgError">Este usuário já existe.</p>
+            </div>
+            `
+        }else{
+            loginMsg.innerHTML = ``
+        }
+    }
+    if( campoId.id == "User" && campoId.value.length <= minCaract){
+        loginMsg.innerHTML = UserMinCharact
+        return;
+    }else{
+        loginMsg.innerHTML = ``
+        
+        // recupera as informações do LocalStorage
+        let users = JSON.parse(localStorage.getItem("RegisterUser"));
+        
+        const FindUser = users.find(p=>p.name == campoId.value)
+        
+        if(FindUser){
+            
+            loginMsg.innerHTML = `
+            <div>
+                <p class ="LoginMsgError">Este usuário já existe.</p>
+            </div>
+            `
+        }else{
+            loginMsg.innerHTML = ``
+        }
+    }
+    
+
+
+}
+
+
 
 // eventlistener, adicionado para prevenir que o formumlário serja enviado por padrão
 document.querySelector("#registerForm").addEventListener("submit", register)
@@ -50,7 +151,8 @@ function register(e){
                 CPF: CPF,
                 email: Email,
                 curso: Curso,
-                Senha: Senha
+                Senha: Senha,
+                Tipo: "Aluno",
             };
 
             // gravação do novo usuário ao final do vetor
