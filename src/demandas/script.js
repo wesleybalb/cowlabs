@@ -16,7 +16,7 @@ $(document).ready(function() {
                         <div class="name_user">
                         <span>
                         <img id="imagem-user" src="/assets/img/ImagemUser.jpg" class="rounded-circle" alt="">
-                        <span <span class="fs-5 fw-bold user_name"> id="user_name">"Nome do usuário"</span>
+                        <span <span class="fs-5 fw-bold user_name" id="user_name">"Nome do usuário"</span>
                         </span>
                         </div>
                             <h4 class="titulo">${novaDemanda}</h4>
