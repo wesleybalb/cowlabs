@@ -33,6 +33,10 @@ body, html {
   .texto_justificado{
     text-align: justify;
   }
+
+  #imagem-user, .imagem-user{
+    width: 30px;
+  }
   
   .banner-home {
     margin-bottom: 0;

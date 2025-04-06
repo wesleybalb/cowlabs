@@ -1,52 +1,14 @@
-$(document).ready(function() {
-    
-    $('form').on('submit', function(e) {
-        e.preventDefault()
-        
-        
-        const novaDemanda = $('#novaDemanda').val()
-        const textoDemanda = $('#textoDemanda').val()
-        const imagemInput = $('#imagemDemanda')[0].files[0]
-        const imagemURL = imagemInput ? URL.createObjectURL(imagemInput) : ' '
+document.addEventListener("DOMContentLoaded", function () {
+    const dados = JSON.parse(localStorage.getItem("demandaSelecionada"));
 
-            const novoCard = `
-                <div class="col-12">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                        <div class="name_user">
-                        <span>
-                        <img id="imagem-user" src="/assets/img/ImagemUser.jpg" class="rounded-circle" alt="">
-                        <span <span class="fs-5 fw-bold user_name"> id="user_name">"Nome do usuário"</span>
-                        </span>
-                        </div>
-                            <h4 class="titulo">${novaDemanda}</h4>
-                            <p class="card-text mb-0 descricao">${textoDemanda}</p>
-                        </div>
-                        <img src="${imagemURL}" alt="" class="card-img-bottom">
-                        <div class="row justify-content-end m-2">
-                            <div class="btn-group col-4 mt-auto">
-                                <button type="button" class="btn demanda_btn">
-                                    Ver demanda
-                                </button>
-                            </div>
-                        </div>
-                    
-                </div>
-            `
+    if (dados) {
+      document.querySelector("#nomeUsuario").textContent = dados.usuario;
+      document.querySelector("#tituloDemanda").textContent = dados.titulo;
+      document.querySelector("#descricaoDemanda").textContent = dados.descricao;
+    }
+  });
 
-        //prepend faz com que a postagem mais rescente aparecça primeiro
-        $('.row_cards').prepend(novoCard)
-        $('#novaDemanda').val('')
-        $('#textoDemanda').val('')
-        $('#imagemDemanda').val('')
-
-        const modalElement = bootstrap.Modal.getInstance(document.getElementById('modalDemanda'))
-        modalElement.hide()
-    })
-})
-
-
-function profileConstructor(){
+  function profileConstructor(){
     const user = JSON.parse(localStorage.getItem("LogedUser"))
 
     const profileList = document.querySelector("#profile_list")
@@ -143,55 +105,27 @@ function profileConstructor(){
 profileConstructor()
 
 
-// Espera o DOM carregar
-document.addEventListener("DOMContentLoaded", function () {
-    // Seleciona todos os botões
-    const botoes = document.querySelectorAll(".demanda_btn");
-    
-    botoes.forEach((botao) => {
-        botao.addEventListener("click", function () {
-        // Sobe até o card onde o botão está
-        const card = botao.closest(".card");
-    
-        // Captura os dados
-        const nomeUsuario = card.querySelector(".user_name").innerHTML;
-        const titulo = card.querySelector(".titulo").innerHTML;
-        const descricao = card.querySelector(".descricao").innerHTML;
-        
-    
-        // Cria o objeto com os dados
-        const dadosDemanda = {
-            usuario: nomeUsuario,
-            titulo: titulo,
-            descricao: descricao,
-        
-        };
-    
-        // Salva no localStorage
-        localStorage.setItem("demandaSelecionada", JSON.stringify(dadosDemanda));
-    
-        // Redireciona se quiser
-        // window.location.href = "/pagina-detalhe.html";
-        });
-    });
-});
-    
+document.querySelector("#comentar").addEventListener("click", comentar)
 
+function comentar(e){
+    e.preventDefault();
 
+    const comentarios = document.querySelector(".newcoments")
+    const msg = document.querySelector("#msg")
 
+    const user = JSON.parse(localStorage.getItem("LogedUser"))
 
-function logout(){
-    localStorage.removeItem("LogedUser")
-
-    document.getElementById("logoutDialog").showModal();
+    comentarios.innerHTML += `
+        <div class="card card_coment m-2">
+             <div class="name_user m-2">
+                <span>
+                    <img src="/assets/img/ImagemUser.jpg" class="imagem-user rounded-circle" alt="">
+                    <span class="fs-5 fw-bold user_name">${user[0].name}</span>
+                </span>
+                </div>
+                    <p class="card-text  descricao m-2">${msg.value}</p>
+                </div>
     
-    setTimeout(()=>{
-
-        window.location.href = '../home/index.html';
-    
-    }, 3000);
-    
+    `
+    console.log(msg.value)
 }
-
-
-
