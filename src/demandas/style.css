@@ -188,7 +188,7 @@ main {
   height: 415px;
 } */
 
-#imagem-user{
+#imagem-user, .imagem-user{
   width: 30px;
 }
 

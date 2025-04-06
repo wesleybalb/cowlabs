@@ -15,7 +15,7 @@ function validaLogin(e) {
     if(chekDefUser.name == user){
         
         if(chekDefUser.Senha == senha){
-            alert("Login Realizado")
+            meuDialogo()
             localStorage.setItem("LogedUser", JSON.stringify([
                 {
                     name: chekDefUser.name,
@@ -40,6 +40,18 @@ function validaLogin(e) {
     console.log(chekDefUser.Senha)
 }
 
+
+
+function meuDialogo(){
+    document.getElementById("meuDialogo").showModal()
+
+    setTimeout(()=>{
+      window.location.href = '../demandas/index.html';
+
+    }, 2000);
+
+
+  }
 
 
 // $(document).ready(function() {

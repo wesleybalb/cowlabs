@@ -69,8 +69,6 @@ document.querySelector("#CEP").onblur = async function(e){
         // converter essa resposta em padrão JSON
         const dados = await response.json()
         
-        console.log(dados)
-
         // validação do retorno
         if(dados.erro){
             alert("CEP inexistente")
@@ -108,11 +106,11 @@ function register(e){
     const Curso = document.querySelector("#curso").value
     const Senha = document.querySelector("#Senha").value 
     const ConfirmSenha = document.querySelector("#ConfirmSenha").value
-    const uf = document.querySelector("uf").value
+    const uf = document.querySelector("#uf").value
     const cidade = document.querySelector("#cidade").value
     const endereco = document.querySelector("#endereco").value
-    const numero = document.querySelector("numero").value
-    const complemento = document.querySelector("complemento").value
+    const numero = document.querySelector("#numero").value
+    const complemento = document.querySelector("#complemento").value
 
     const InfoUser  = document.querySelector("#InfoUser")
     
