@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="/src/css/default.css"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back" />
   </head>
   <body>
 
@@ -58,18 +57,9 @@
               >
             </li>
           </ul>
-          <div class="col-md-3 text-end justify-content-end">
+          <div class="col-md-3 text-end justify-content-end" id="logedCheker" >
             
-            <li class="nav-item nav justify-content-end dropdown none">
-              <a class="nav-link dropdown-toggle btn profile_img" data-bs-toggle="dropdown" role="button" aria-expanded="false" id="profile_img" ><img  src="/assets/img/ImagemUser.jpg" alt="" srcset="" ></a>
-              <ul class="dropdown-menu" >
-                <div id="profile_list">
-
-                </div>
-                <li><hr class="dropdown-divider"></li>
-                <li><button class="dropdown-item" role="button" id="logout" onclick="logout()">Logout</button></li>
-              </ul>
-            </li> 
+            
           </div>
         </header>
       </div>
@@ -77,52 +67,46 @@
 
 
     <main class="pb-5 ">
-      <div class="container">
-        <div class="d-flex">
-          <div class="personal_btn d-flex">
-            <span class="material-symbols-outlined">
-              arrow_back
-              </span><a  id="back">Voltar</a>
-          </div>
-        </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="card mb-2 mt-2 p-2">
-                        <h4 id="tituloDemanda"></h4>
-                        <p id="descricaoDemanda"></p>
-                        <span>
-                            <img src="/assets/img/ImagemUser.jpg" class="imagem-user rounded-circle" alt="">
-                            <span class="fw-bold" id="nomeUsuario"></span>
-                        </span>
-        
-                    </div>
-                    <div class="coments card">
-        
-                        <h4 class="m-2">Comentários:</h4>
-                        <div class="m-3">
-                            <form action="" class="d-grid col-12">
-                                <textarea id="msg" class="col-12"></textarea>
-                                <div><input type="button" id="comentar" value="comentar" name="comentar" class="personal_btn"></div>
-                            </form>
+        <section id="contact" class="py-4 bg-light  ">
+            <div class="container ">
+                
+              <div class=""  >
+                    
+                  <div class="text-center m-2">
+                      <h1 class="m-2">Fale com o nosso time</h1>
+                      <p class="text-center lead text-dark-gray ">
+                        Entre em contato com o nosso time de suporte, caso encontre alguma dificuldade em nosso site. <br> Entraremos em contato tão logo seja possível analisar sua mensagem.
+                      </p>
+                  </div>
+                  <div class="row ">
+                    <div class="col-md-8 mx-auto">
+                      <form>
+                        <div class="form-group">
+                          <label for="nome">Seu Nome</label>
+                          <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu Nome" />
                         </div>
-                        <div class="newcoments m-2">
-                            <div class="card card_coment m-2">
-                                <div class="name_user m-2">
-                                  <span>
-                                    <img src="/assets/img/ImagemUser.jpg" class="imagem-user rounded-circle" alt="">
-                                    <span class="fs-5 fw-bold user_name">User_example
-                                    </span>
-                                  </span>
-                                </div>
-                                <p class="card-text  descricao m-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta nulla consequatur natus, quidem est officiis! Facilis nisi eum, reprehenderit velit repellendus repudiandae. Necessitatibus ipsum cum, voluptate corporis ea deserunt blanditiis.</p>
-                            </div>
+                        <div class="form-group">
+                          <label for="email">Seu E-mail</label>
+                          <input type="email" class="form-control" id="email" name="email" placeholder="Seu E-mail" />
                         </div>
-        
+                        <div class="form-group">
+                          <label for="telefone">Seu Telefone (opcional)</label>
+                          <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="Seu Telefone" />
+                        </div>
+                        <div class="form-group">
+                          <label for="mensagem">Mensagem</label>
+                          <textarea class="form-control" id="mensagem" name="mensagem" rows="4" placeholder="Sua Mensagem"></textarea>
+                        </div>
+                        <div class="justify_center"><button type="submit" class="btn btn-outline-primary" id="forms_btn">Enviar</button></div>
+                        <!-- usado para mensagem de alerta com plugins do Jquery!! -->
+                        <div id="alerta" class="alert alert-danger d-none mt-3"></div>
+                        <div id="success" class="alert alert-success d-none mt-3"></div>
+                      </form>
                     </div>
-                </div>
+                  </div>
+              </div>
             </div>
-        
-        </div>
+          </section>
     </main>
 
 

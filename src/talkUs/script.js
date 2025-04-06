@@ -1,14 +1,41 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const dados = JSON.parse(localStorage.getItem("demandaSelecionada"));
+function inicialization (){
+    const logedCheker = document.getElementById("logedCheker")
+    
+    const LogedUser = localStorage.getItem("LogedUser")
 
-    if (dados) {
-      document.querySelector("#nomeUsuario").textContent = dados.usuario;
-      document.querySelector("#tituloDemanda").textContent = dados.titulo;
-      document.querySelector("#descricaoDemanda").textContent = dados.descricao;
+    if(LogedUser){
+        
+        logedCheker.innerHTML = `
+            <li class="nav-item nav justify-content-end dropdown none">
+            <a class="nav-link dropdown-toggle btn profile_img" data-bs-toggle="dropdown" role="button" aria-expanded="false" id="profile_img" ><img  src="/assets/img/ImagemUser.jpg" alt="" srcset="" ></a>
+            <ul class="dropdown-menu" >
+            <div id="profile_list">
+        
+            </div>
+            <li><hr class="dropdown-divider"></li>
+            <li><button class="dropdown-item" role="button" id="logout" onclick="logout()">Logout</button></li>
+            </ul>
+            </li> 
+        `
+        profileConstructor()
+        return
+    }else{
+        
+        
+        logedCheker.innerHTML = `
+          <div class="col-md-3 text-end">
+          <a href="/src/login/index.html" class="btn personal_btn me-2">Login</a>
+            </div>
+        `
     }
-  });
+    
+ 
+}
 
-  function profileConstructor(){
+
+inicialization()
+
+function profileConstructor(){
     const user = JSON.parse(localStorage.getItem("LogedUser"))
 
     const profileList = document.querySelector("#profile_list")
@@ -102,38 +129,47 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(user[0].name)
 }
 
-profileConstructor()
 
 
-document.querySelector("#comentar").addEventListener("click", comentar)
-
-function comentar(e){
-    e.preventDefault();
-
-    const comentarios = document.querySelector(".newcoments")
-    const msg = document.querySelector("#msg")
-
-    const user = JSON.parse(localStorage.getItem("LogedUser"))
-
-    comentarios.innerHTML += `
-        <div class="card card_coment m-2">
-             <div class="name_user m-2">
-                <span>
-                    <img src="/assets/img/ImagemUser.jpg" class="imagem-user rounded-circle" alt="">
-                    <span class="fs-5 fw-bold user_name">${user[0].name}</span>
-                </span>
-                </div>
-                    <p class="card-text  descricao m-2">${msg.value}</p>
-                </div>
-    
-    `
-    console.log(msg.value)
-}
+$(document).ready(function() {
 
 
-document.querySelector("#back").addEventListener("click", back)
 
-function back(){
-    localStorage.removeItem("demandaSelecionada")
-    window.location.href="/src/demandas/index.html"
-}
+    $('#telefone').mask('(00)00000-0000', {
+
+        placeholder:'(00)00000-0000'
+    })
+
+    $('form').validate({
+        rules: {
+            nome: {
+                required: true
+            },
+            email: {
+                required: true,
+                email: true 
+            },
+            mensagem: {
+                required: true
+            }
+        },
+        messages: {
+            nome: 'Por favor, insira o seu nome',
+            email: 'Por favor, insira um e-mail válido', 
+            mensagem: 'Por favor, insira sua mensagem' 
+        },
+        submitHandler: function(form, evento){
+            console.log(form)
+            $('#success').text("Obrigado por entrar em contato, recebemos seu formulário e vamos o responder em breve!")
+            $('#success').removeClass('d-none')
+            $('#alerta').addClass('d-none')
+        },
+        invalidHandler: function(evento, validador){
+            let camposIncorretos = validador.numberOfInvalids()
+            if(camposIncorretos)
+            $('#alerta').removeClass('d-none')
+            $('#alerta').text(`Existem ${camposIncorretos} campos incorretos. Preencha-os corretamente para falar`)
+            $('#success').addClass('d-none')
+        } 
+    })
+})

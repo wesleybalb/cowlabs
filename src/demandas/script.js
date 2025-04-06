@@ -170,8 +170,10 @@ document.addEventListener("DOMContentLoaded", function () {
         // Salva no localStorage
         localStorage.setItem("demandaSelecionada", JSON.stringify(dadosDemanda));
     
-        // Redireciona se quiser
-        // window.location.href = "/pagina-detalhe.html";
+        
+        window.location.href="/src/demanda_view/index.html"
+
+
         });
     });
 });

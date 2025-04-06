@@ -38,6 +38,10 @@ body, html {
     width: 30px;
   }
   
+  #back_btn{
+    width: 80px;
+  }
+
   .banner-home {
     margin-bottom: 0;
     height: 100vh;
