@@ -173,3 +173,16 @@ $(document).ready(function() {
         } 
     })
 })
+
+function logout(){
+    localStorage.removeItem("LogedUser")
+
+    document.getElementById("logoutDialog").showModal();
+    
+    setTimeout(()=>{
+
+        window.location.href = '../home/index.html';
+    
+    }, 3000);
+    
+}

@@ -26,7 +26,7 @@ $(document).ready(function() {
                         <img src="${imagemURL}" alt="" class="card-img-bottom">
                         <div class="row justify-content-end m-2">
                             <div class="btn-group col-4 mt-auto">
-                                <button type="button" class="btn demanda_btn">
+                                <button type="button" class="btn demanda_btn" onclick="montademanda()">
                                     Ver demanda
                                 </button>
                             </div>
@@ -141,26 +141,25 @@ function profileConstructor(){
     console.log(user[0].name)
 }
 
-profileConstructor()
-
-
-// Espera o DOM carregar
-document.addEventListener("DOMContentLoaded", function () {
-    // Seleciona todos os botões
-    const botoes = document.querySelectorAll(".demanda_btn");
+function montademanda(){
     
+    // vamos usar o queryselectorall para aplicar a função a todos os botões que já existem na página
+    const botoes = document.querySelectorAll(".demanda_btn");
+    console.log(botoes)
+    // a query selector cria um vetor com cada um dos botões. Por isso, vamos usar um forEach para incluir um escutador de evento click nesses botões
     botoes.forEach((botao) => {
         botao.addEventListener("click", function () {
-        // Sobe até o card onde o botão está
+        
+        // vamos usar o closest para buscar o elemento pai a que está vinculado o botão, assim poderemos pegar os dados dentro do card selecionado 
         const card = botao.closest(".card");
     
-        // Captura os dados
+        // Vamos capturar os dados que transportaremos para a página criada
         const nomeUsuario = card.querySelector(".user_name").innerHTML;
         const titulo = card.querySelector(".titulo").innerHTML;
         const descricao = card.querySelector(".descricao").innerHTML;
         
     
-        // Cria o objeto com os dados
+        // Para não perdermos a informação e podermos usá-la na próxima página vamos criar um objeto para gravar no localstorage
         const dadosDemanda = {
             usuario: nomeUsuario,
             titulo: titulo,
@@ -168,20 +167,17 @@ document.addEventListener("DOMContentLoaded", function () {
         
         };
     
-        // Salva no localStorage
+        // Agora que o objeto foi criado, vamos salvá-lo no local storage
         localStorage.setItem("demandaSelecionada", JSON.stringify(dadosDemanda));
     
-        
+        // depois que o objeto foi gravado, podemos chamar a próxima página, que conterá uma função para carregar as informações já salvas no localstorage
         window.location.href="/src/demanda_view/index.html"
-
 
         });
     });
-});
+}
+
     
-
-
-
 
 function logout(){
     localStorage.removeItem("LogedUser")
@@ -198,3 +194,7 @@ function logout(){
 
 
 
+profileConstructor()
+
+
+montademanda()
