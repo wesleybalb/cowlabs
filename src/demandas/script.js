@@ -3,6 +3,7 @@ $(document).ready(function() {
     $('form').on('submit', function(e) {
         e.preventDefault()
         
+        const user = JSON.parse(localStorage.getItem("LogedUser"))
         
         const novaDemanda = $('#novaDemanda').val()
         const textoDemanda = $('#textoDemanda').val()
@@ -16,7 +17,7 @@ $(document).ready(function() {
                         <div class="name_user">
                         <span>
                         <img id="imagem-user" src="/assets/img/ImagemUser.jpg" class="rounded-circle" alt="">
-                        <span <span class="fs-5 fw-bold user_name" id="user_name">"Nome do usuário"</span>
+                        <span <span class="fs-5 fw-bold user_name" id="user_name">${user[0].name}</span>
                         </span>
                         </div>
                             <h4 class="titulo">${novaDemanda}</h4>
