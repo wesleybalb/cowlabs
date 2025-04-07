@@ -52,14 +52,24 @@
               >
             </li>
             <li>
-              <a href="/src/talkUs/index.html" class="nav-link text-white px-2"
+              <a href="/src/talkUs/index.html" class="nav-link link-dark fw-bold disabled px-2"
                 >Fale Conosco</a
               >
             </li>
           </ul>
-          <div class="col-md-3 text-end justify-content-end" id="logedCheker" >
+          <div class="col-md-3 text-end justify-content-end" id="loginOrLoged">
             
-            
+            <li class="nav-item nav justify-content-end dropdown none">
+              <a class="nav-link dropdown-toggle btn profile_img" data-bs-toggle="dropdown" role="button" aria-expanded="false" id="profile_img" ><img  src="/assets/img/ImagemUser.jpg" alt="" srcset="" ></a>
+              <ul class="dropdown-menu" >
+                <div id="profile_list">
+
+                </div>
+                <li><hr class="dropdown-divider"></li>
+                <li><button class="dropdown-item" role="button" id="logout" onclick="logout()">Logout</button></li>
+              </ul>
+            </li> 
+
           </div>
         </header>
       </div>
@@ -187,5 +197,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="script.js"></script>
+    <script src="/src/script/default.js"></script>
   </body>
 </html>

@@ -27,8 +27,26 @@
           <li><a href="/src/sobre/index.html" class="nav-link link-dark fw-bold   px-2">Sobre</a></li>
           <li><a href="/src/talkUs/index.html" class="nav-link text-white  px-2">Fale Conosco</a></li>
         </ul>
-        <div class="col-md-3 text-end">
-          <a href="/src/login/index.html" class="btn personal_btn me-2">Login</a>
+        <div class="col-md-3 text-end justify-content-end" id="loginOrLoged">
+            
+          <li class="nav-item nav justify-content-end dropdown none">
+            <a class="nav-link dropdown-toggle btn profile_img" data-bs-toggle="dropdown" role="button" aria-expanded="false" id="profile_img" ><img  src="/assets/img/ImagemUser.jpg" alt="" srcset="" ></a>
+            <ul class="dropdown-menu" >
+              <div id="profile_list">
+
+              </div>
+              <li><hr class="dropdown-divider"></li>
+              <li><button class="dropdown-item" role="button" id="logout" onclick="logout()">Logout</button></li>
+            </ul>
+          </li> 
+          
+          
+
+
+          
+          
+
+
         </div>
       </header>
     </div>
@@ -198,5 +216,6 @@
     <script src="/PluginsJQUERY/jquery.validate.min.js"></script>
     <script src="/PluginsJQUERY/messages_pt_BR.min.js"></script>
     <script src="home.js"></script>
+    <script src="/src/script/default.js"></script>
   </body>
 </html>
