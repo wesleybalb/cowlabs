@@ -14,34 +14,48 @@
   </head>
   <body>
   <!-- header inicio -->
-  <nav class="bg-primary absolute-top">
-    <div class="container " id="cabecalho">
-      <header class="d-flex  bg-primary flex-wrap align-items-center justify-content-center justify-content-md-between py-3">
-        <div class="col-md-3 mb-2 mb-md-0">
-          <a class="navbar-brand text-light d-flex align-items-center" href="https://cowlabs.com.br/src/home/index.htm" style="font-weight: bold;">
-            CowLabs
-          </a>
-        </div>
-        <ul class=" text-white nav col-12 col-md-auto mb-2 justify-content-center mb-md-0" id="navbarScrollSpy">
-          <li><a href="/src/home/index.html" class=" nav-link px-2 text-white  ">Home</a></li>
-          <li><a href="/src/faq/index.html" class="ndisabled nav-link link-dark fw-bold">FAQs</a></li>
-          <li><a href="/src/sobre/index.html" class="nav-link text-white  px-2">Sobre</a></li>
-          <li><a href="/src/talkUs/index.html" class="nav-link text-white px-2">Fale Conosco</a></li>
+  <nav class="navbar navbar-expand-md bg-primary navbar-dark absolute-top py-3">
+    <div class="container" id="cabecalho">
+  
+      <a class="navbar-brand fw-bold text-light d-flex align-items-center" href="https://cowlabs.com.br/src/home/index.htm">
+        CowLabs
+      </a>
+  
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScrollSpy" aria-controls="navbarScrollSpy" aria-expanded="false" aria-label="Alternar navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse justify-content-between" id="navbarScrollSpy">
+        
+        <ul class="navbar-nav mx-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a href="/src/home/index.html" class="nav-link text-white link-dark fw-bold">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="/src/faq/index.html" class="nav-link text-white px-2">FAQs</a>
+          </li>
+          <li class="nav-item">
+            <a href="/src/sobre/index.html" class="nav-link text-white px-2">Sobre</a>
+          </li>
+          <li class="nav-item">
+            <a href="/src/talkUs/index.html" class="nav-link text-white px-2">Fale Conosco</a>
+          </li>
         </ul>
-        <div class="col-md-3 text-end justify-content-end " id="loginOrLoged">
-            
-          <li class="nav-item nav justify-content-end dropdown none">
-            <a class="nav-link dropdown-toggle btn profile_img" data-bs-toggle="dropdown" role="button" aria-expanded="false" id="profile_img" ><img  src="/assets/img/ImagemUser.jpg" alt="" srcset="" ></a>
-            <ul class="dropdown-menu" >
-              <div id="profile_list">
-
-              </div>
+  
+        <div class="d-flex" id="loginOrLoged">
+          <li class="nav-item dropdown none list-unstyled">
+            <a class="nav-link dropdown-toggle btn profile_img" data-bs-toggle="dropdown" role="button" aria-expanded="false" id="profile_img">
+              <img src="/assets/img/ImagemUser.jpg" alt="" />
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <div id="profile_list"></div>
               <li><hr class="dropdown-divider"></li>
               <li><button class="dropdown-item" role="button" id="logout" onclick="logout()">Logout</button></li>
             </ul>
-          </li> 
+          </li>
         </div>
-      </header>
+  
+      </div>
     </div>
   </nav>
   <!-- fim da header -->
