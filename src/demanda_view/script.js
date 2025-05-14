@@ -41,3 +41,5 @@ function back(){
     localStorage.removeItem("demandaSelecionada")
     window.location.href="/src/demandas/index.html"
 }
+
+console.log(user)

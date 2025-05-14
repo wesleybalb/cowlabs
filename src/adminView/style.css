@@ -1,0 +1,17 @@
+.cardGrande{
+    height: 40vh;
+    overflow-y: scroll;
+}
+
+.credenciaisAlunos{
+    list-style: none;
+}
+
+.hide{
+    display: none;
+}
+
+.btn-editar{
+    margin-inline: 20px;
+}
+
