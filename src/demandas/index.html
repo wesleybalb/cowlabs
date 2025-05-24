@@ -7,63 +7,118 @@
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
     <title>CowLabs UniFOA</title>
-    <link rel="shortcut icon" href="https://cowlabs.com.br/assets/img/favicon.ico" type="image/favicon"/>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link
+      rel="shortcut icon"
+      href="https://cowlabs.com.br/assets/img/favicon.ico"
+      type="image/favicon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="/src/css/default.css" />
   </head>
   <body>
-
-    <nav class="navbar navbar-expand-md bg-primary navbar-dark absolute-top py-3">
+    <nav
+      class="navbar navbar-expand-md bg-primary navbar-dark absolute-top py-3"
+    >
       <div class="container" id="cabecalho">
-    
-        <a class="navbar-brand fw-bold text-light d-flex align-items-center" href="https://cowlabs.com.br/src/home/index.htm">
+        <a
+          class="navbar-brand fw-bold text-light d-flex align-items-center"
+          href="https://cowlabs.com.br/src/home/index.htm"
+        >
           CowLabs
         </a>
-    
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScrollSpy" aria-controls="navbarScrollSpy" aria-expanded="false" aria-label="Alternar navegação">
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarScrollSpy"
+          aria-controls="navbarScrollSpy"
+          aria-expanded="false"
+          aria-label="Alternar navegação"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
-    
-        <div class="collapse navbar-collapse justify-content-between" id="navbarScrollSpy">
-          
+
+        <div
+          class="collapse navbar-collapse justify-content-between"
+          id="navbarScrollSpy"
+        >
           <ul class="navbar-nav mx-auto mb-2 mb-md-0">
             <li class="nav-item">
-              <a href="#" class="nav-link disabled link-dark fw-bold">Home</a>
+              <a href="/src/faq/index.html" class="nav-link text-white px-2"
+                >FAQs</a
+              >
             </li>
             <li class="nav-item">
-              <a href="/src/faq/index.html" class="nav-link text-white px-2">FAQs</a>
+              <a href="/src/sobre/index.html" class="nav-link text-white px-2"
+                >Sobre</a
+              >
             </li>
             <li class="nav-item">
-              <a href="/src/sobre/index.html" class="nav-link text-white px-2">Sobre</a>
-            </li>
-            <li class="nav-item">
-              <a href="#contact" class="nav-link text-white px-2">Fale Conosco</a>
+              <a href="#contact" class="nav-link text-white px-2"
+                >Fale Conosco</a
+              >
             </li>
           </ul>
-    
+
           <div class="d-flex" id="loginOrLoged">
             <li class="nav-item dropdown none list-unstyled">
-              <a class="nav-link dropdown-toggle btn profile_img" data-bs-toggle="dropdown" role="button" aria-expanded="false" id="profile_img">
+              <a
+                class="nav-link dropdown-toggle btn profile_img"
+                data-bs-toggle="dropdown"
+                role="button"
+                aria-expanded="false"
+                id="profile_img"
+              >
                 <img src="/assets/img/ImagemUser.jpg" alt="" />
               </a>
               <ul class="dropdown-menu dropdown-menu-end">
                 <div id="profile_list"></div>
-                <li><hr class="dropdown-divider"></li>
-                <li><button class="dropdown-item" role="button" id="logout" onclick="logout()">Logout</button></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <button
+                    class="dropdown-item"
+                    role="button"
+                    id="logout"
+                    onclick="logout()"
+                  >
+                    Logout
+                  </button>
+                </li>
               </ul>
             </li>
           </div>
-    
         </div>
       </div>
     </nav>
 
-    <div class="modal fade" id="modalDemanda" tabindex="-1" aria-labelledby="modalDemandaLabel" aria-hidden="true">
+    <div
+      class="modal fade"
+      id="modalDemanda"
+      tabindex="-1"
+      aria-labelledby="modalDemandaLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
@@ -81,19 +136,18 @@
                 />
               </div>
               <div class="mb-3">
-                <input
-                  type="text"
-                  class="form-control"
+                <textarea
+                  class=""
                   id="textoDemanda"
-                  placeholder="Digite aqui a demanda"
+                  placeholder="Digite sua demanda aqui"
                   required
-                />
+                ></textarea>
               </div>
               <div class="mb-3">
-                <label for="imagemDemanda" class="form-label"
-                  >Mídia (Opcional):</label
+                <label for="fileLocation" class="form-label"
+                  >Arquivos (Opcional):</label
                 >
-                <input type="file" class="form-control" id="imagemDemanda" />
+                <input type="file" class="form-control" id="fileLocation" />
               </div>
             </form>
           </div>
@@ -116,467 +170,390 @@
         </div>
       </div>
     </div>
-<!-- inicio da página, chamar para o usuário publicar um pedido de "demanda" -->
+    <!-- inicio da página, chamar para o usuário publicar um pedido de "demanda" -->
     <div class="container">
       <div class="cards">
         <div class="container pt-4">
-          <h2 class="text-center">Colabore com a galera</h2>
-          <div class="d-flex justify-content-center mb-4">
-            <button
+          <div class="position-relative mb-4 card bg-body-tertiary p-3">
+            <div class="text-center">
+              <button
               type="button"
               class="btn btn-primary"
               data-bs-toggle="modal"
               data-bs-target="#modalDemanda"
+              >Colabore</button>
+            </div>
+          <!-- inicio do filtro dropdown -->
+          <div class="position-absolute end-0 top-0 px-3 justify-content-center d-lg-none">
+            <button
+              class="btn text-primary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
             >
-              Colabore
+              <i class="bi bi-funnel-fill"></i> 
             </button>
+            <div class="dropdown-menu p-3" style="min-width: 300px">
+              <form id="form_filter_dropdown">
+                <strong>Filtros</strong>
+                <ul class="list-unstyled text-primary">
+                   <li>
+                    <input
+                      type="checkbox"
+                      id="Sistemas de Informação"
+                      value="Sistemas de Informação"
+                    />
+                    <label for="Sistemas de Informação">
+                      Sistemas de Informação
+                    </label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="Administração"
+                      value="Administração"
+                    />
+                    <label for="Administração">Administração</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="Ciências Biológicas"
+                      value="Ciências Biológicas"
+                    />
+                    <label for="Ciências Biológicas">Ciências Biológicas</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="Ciências Contábeis"
+                      value="Ciências Contábeis"
+                    />
+                    <label for="Ciências Contábeis">Ciências Contábeis</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" id="Direito" value="Direito" />
+                    <label for="Direito">Direito</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" id="Design" value="Design" />
+                    <label for="Design">Design</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="Educação Física"
+                      value="Educação Física"
+                    />
+                    <label for="Educação Física">Educação Física</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="Engenharia ABI"
+                      value="Engenharia ABI"
+                    />
+                    <label for="Engenharia ABI">Engenharia ABI</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="Engenharia Ambiental"
+                      value="Engenharia Ambiental"
+                    />
+                    <label for="Engenharia Ambiental"
+                      >Engenharia Ambiental</label
+                    >
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="Engenharia Civil"
+                      value="Engenharia Civil"
+                    />
+                    <label for="Engenharia Civil">Engenharia Civil</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="Engenharia de Produção"
+                      value="Engenharia de Produção"
+                    />
+                    <label for="Engenharia de Produção"
+                      >Engenharia de Produção</label
+                    >
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="Engenharia Elétrica"
+                      value="Engenharia Elétrica"
+                    />
+                    <label for="Engenharia Elétrica">Engenharia Elétrica</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="Engenharia Mecânica"
+                      value="Engenharia Mecânica"
+                    />
+                    <label for="Engenharia Mecânica">Engenharia Mecânica</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" id="Enfermagem" value="Enfermagem" />
+                    <label for="Enfermagem">Enfermagem</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" id="Medicina" value="Medicina" />
+                    <label for="Medicina">Medicina</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" id="Nutrição" value="Nutrição" />
+                    <label for="Nutrição">Nutrição</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="Odontologia"
+                      value="Odontologia"
+                    />
+                    <label for="Odontologia">Odontologia</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="Publicidade e Propaganda"
+                      value="Publicidade e Propaganda"
+                    />
+                    <label for="Publicidade e Propaganda"
+                      >Publicidade e Propaganda</label
+                    >
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="Serviço Social"
+                      value="Serviço Social"
+                    />
+                    <label for="Serviço Social">Serviço Social</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="Técnico em Enfermagem"
+                      value="Técnico em Enfermagem"
+                    />
+                    <label for="Técnico em Enfermagem"
+                      >Técnico em Enfermagem</label
+                    >
+                  </li>
+    
+                </ul>
+                <button type="reset" id="filter_btn_sm" class="btn demanda_btn mt-2">
+                  Limpar
+                </button>
+              </form>
+            </div>
           </div>
+    
+            <!-- fim do filtro dropdown -->
         </div>
-        <div class="d-flex justify-content-center">
-          <div class="row row_cards" id="tarefa-list">
-            <!-- inicio dos cards de exemplo -->
-            
-            <div class="col-12" data-curso="Administração">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <div class="name_user">
-                    <span>
-                      <img  class="imagem-user"  src="/assets/img/ImagemUser.jpg" class="rounded-circle" alt="">
-                      <span class="fs-5 fw-bold user_name">Ana Souza</span>
-                    </span>
-                  </div>
-                  <h4 class="titulo">Elaborar um plano de negócios para uma cafeteria fictícia</h4>
-                  <p class="card-text mb-0 descricao">Elaborar um plano de negócios para uma cafeteria fictícia, considerando análise de mercado, plano financeiro e estratégias de marketing.</p>
-                  <span class="curso-tag d-none">Administração</span>
-                </div>
-                <div class="row justify-content-end m-2">
-                  <div class="btn-group col-4 mt-auto">
-                    <button type="button" class="btn demanda_btn">Ver demanda</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-              
-            <div class="col-12" data-curso="Ciências Biológicas">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <div class="name_user">
-                    <span>
-                      <img  class="imagem-user"  src="/assets/img/ImagemUser.jpg" class="rounded-circle" alt="">
-                      <span class="fs-5 fw-bold user_name">Bruno Lima</span>
-                    </span>
-                  </div>
-                  <h4 class="titulo">Produzir um material didático ilustrado sobre o ciclo de vida das plantas angiospermas</h4>
-                  <p class="card-text mb-0 descricao">Produzir um material didático ilustrado sobre o ciclo de vida das plantas angiospermas, voltado para alunos do ensino fundamental.</p>
-                  <span class="curso-tag d-none">Ciências Biológicas</span>
-                </div>
-                <div class="row justify-content-end m-2">
-                  <div class="btn-group col-4 mt-auto">
-                    <button type="button" class="btn demanda_btn">Ver demanda</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-              
-            <div class="col-12" data-curso="Ciências Contábeis">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <div class="name_user">
-                    <span>
-                      <img  class="imagem-user"  src="/assets/img/ImagemUser.jpg" class="rounded-circle" alt="">
-                      <span class="fs-5 fw-bold user_name">Carla Mendes</span>
-                    </span>
-                  </div>
-                  <h4 class="titulo">Montar um demonstrativo de resultados do exercício (DRE) para uma microempresa fictícia</h4>
-                  <p class="card-text mb-0 descricao">Montar um demonstrativo de resultados do exercício (DRE) para uma microempresa fictícia, utilizando normas contábeis atualizadas.</p>
-                  <span class="curso-tag d-none">Ciências Contábeis</span>
-                </div>
-                <div class="row justify-content-end m-2">
-                  <div class="btn-group col-4 mt-auto">
-                    <button type="button" class="btn demanda_btn">Ver demanda</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-              
-            <div class="col-12" data-curso="Direito">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <div class="name_user">
-                    <span>
-                      <img  class="imagem-user"  src="/assets/img/ImagemUser.jpg" class="rounded-circle" alt="">
-                      <span class="fs-5 fw-bold user_name">Daniel Rocha</span>
-                    </span>
-                  </div>
-                  <h4 class="titulo">Redigir uma petição inicial simples sobre um caso fictício de direito do consumidor</h4>
-                  <p class="card-text mb-0 descricao">Redigir uma petição inicial simples sobre um caso fictício de direito do consumidor, aplicando os fundamentos do CDC.</p>
-                  <span class="curso-tag d-none">Direito</span>
-                </div>
-                <div class="row justify-content-end m-2">
-                  <div class="btn-group col-4 mt-auto">
-                    <button type="button" class="btn demanda_btn">Ver demanda</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-              
-            <div class="col-12" data-curso="Design">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <div class="name_user">
-                    <span>
-                      <img  class="imagem-user"   src="/assets/img/ImagemUser.jpg" class="rounded-circle" alt="">
-                      <span class="fs-5 fw-bold user_name">Eduarda Castro</span>
-                    </span>
-                  </div>
-                  <h4 class="titulo">Criar o layout de um site para uma ONG fictícia</h4>
-                  <p class="card-text mb-0 descricao">Criar o layout de um site para uma ONG fictícia, utilizando princípios de design responsivo e identidade visual.</p>
-                  <span class="curso-tag d-none">Design</span>
-                </div>
-                <div class="row justify-content-end m-2">
-                  <div class="btn-group col-4 mt-auto">
-                    <button type="button" class="btn demanda_btn">Ver demanda</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-              
-            <div class="col-12" data-curso="Educação Física">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <div class="name_user">
-                    <span>
-                      <img  class="imagem-user"   src="/assets/img/ImagemUser.jpg" class="rounded-circle" alt="">
-                      <span class="fs-5 fw-bold user_name">Felipe Martins</span>
-                    </span>
-                  </div>
-                  <h4 class="titulo">Elaborar uma sequência de atividades físicas adaptadas para idosos</h4>
-                  <p class="card-text mb-0 descricao">Elaborar uma sequência de atividades físicas adaptadas para idosos, com foco em mobilidade e equilíbrio.</p>
-                  <span class="curso-tag d-none">Educação Física</span>
-                </div>
-                <div class="row justify-content-end m-2">
-                  <div class="btn-group col-4 mt-auto">
-                    <button type="button" class="btn demanda_btn">Ver demanda</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-              
-            <div class="col-12" data-curso="Engenharia ABI">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <div class="name_user">
-                    <span>
-                      <img  class="imagem-user"  src="/assets/img/ImagemUser.jpg" class="rounded-circle" alt="">
-                      <span class="fs-5 fw-bold user_name">Gabriela Dias</span>
-                    </span>
-                  </div>
-                  <h4 class="titulo">Desenvolver um protótipo de dispositivo automatizado que utilize Arduino para controle de temperatura em estufa.</h4>
-                  <p class="card-text mb-0 descricao">Desenvolver um protótipo de dispositivo automatizado que utilize Arduino para controle de temperatura em estufa.</p>
-                  <span class="curso-tag d-none">Engenharia ABI</span>
-                </div>
-                <div class="row justify-content-end m-2">
-                  <div class="btn-group col-4 mt-auto">
-                    <button type="button" class="btn demanda_btn">Ver demanda</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-              
-            <div class="col-12" data-curso="Engenharia Ambiental">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <div class="name_user">
-                    <span>
-                      <img  class="imagem-user" src="/assets/img/ImagemUser.jpg" class="rounded-circle" alt="">
-                      <span class="fs-5 fw-bold user_name">Henrique Almeida</span>
-                    </span>
-                  </div>
-                  <h4 class="titulo">Criar um plano de manejo sustentável para uma área urbana degradada</h4>
-                  <p class="card-text mb-0 descricao">Criar um plano de manejo sustentável para uma área urbana degradada, com foco em recuperação de nascentes.</p>
-                  <span class="curso-tag d-none">Engenharia Ambiental</span>
-                </div>
-                <div class="row justify-content-end m-2">
-                  <div class="btn-group col-4 mt-auto">
-                    <button type="button" class="btn demanda_btn">Ver demanda</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-              
-            <div class="col-12" data-curso="Engenharia Civil">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <div class="name_user">
-                    <span>
-                      <img  class="imagem-user" src="/assets/img/ImagemUser.jpg" class="rounded-circle" alt="">
-                      <span class="fs-5 fw-bold user_name">Isabela Ferreira</span>
-                    </span>
-                  </div>
-                  <h4 class="titulo">Elaborar o projeto estrutural simplificado de uma residência térrea</h4>
-                  <p class="card-text mb-0 descricao">Elaborar o projeto estrutural simplificado de uma residência térrea, incluindo planta baixa e cálculos básicos.</p>
-                  <span class="curso-tag d-none">Engenharia Civil</span>
-                </div>
-                <div class="row justify-content-end m-2">
-                  <div class="btn-group col-4 mt-auto">
-                    <button type="button" class="btn demanda_btn">Ver demanda</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-              
-            <div class="col-12" data-curso="Engenharia de Produção">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <div class="name_user">
-                    <span>
-                      <img  class="imagem-user" src="/assets/img/ImagemUser.jpg" class="rounded-circle" alt="">
-                      <span class="fs-5 fw-bold user_name">João Pedro</span>
-                    </span>
-                  </div>
-                  <h4 class="titulo">Otimizar o processo produtivo de uma fábrica fictícia com base em princípios de layout e controle de qualidade.</h4>
-                  <p class="card-text mb-0 descricao">Otimizar o processo produtivo de uma fábrica fictícia com base em princípios de layout e controle de qualidade.</p>
-                  <span class="curso-tag d-none">Engenharia de Produção</span>
-                </div>
-                <div class="row justify-content-end m-2">
-                  <div class="btn-group col-4 mt-auto">
-                    <button type="button" class="btn demanda_btn">Ver demanda</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-              
-            <div class="col-12" data-curso="Engenharia Elétrica">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <div class="name_user">
-                    <span>
-                      <img  class="imagem-user" src="/assets/img/ImagemUser.jpg" class="rounded-circle" alt="">
-                      <span class="fs-5 fw-bold user_name">Karina Silva</span>
-                    </span>
-                  </div>
-                  <h4 class="titulo">Criar o diagrama unifilar e a estimativa de carga elétrica de uma residência de médio porte.</h4>
-                  <p class="card-text mb-0 descricao">Criar o diagrama unifilar e a estimativa de carga elétrica de uma residência de médio porte.</p>
-                  <span class="curso-tag d-none">Engenharia Elétrica</span>
-                </div>
-                <div class="row justify-content-end m-2">
-                  <div class="btn-group col-4 mt-auto">
-                    <button type="button" class="btn demanda_btn">Ver demanda</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-              
-            <div class="col-12" data-curso="Engenharia Mecânica">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <div class="name_user">
-                    <span>
-                      <img  class="imagem-user" src="/assets/img/ImagemUser.jpg" class="rounded-circle" alt="">
-                      <span class="fs-5 fw-bold user_name">Lucas Moreira</span>
-                    </span>
-                  </div>
-                  <h4 class="titulo">Projetar um sistema de ventilação mecânica para uma oficina industrial de pequeno porte.</h4>
-                  <p class="card-text mb-0 descricao">Projetar um sistema de ventilação mecânica para uma oficina industrial de pequeno porte.</p>
-                  <span class="curso-tag d-none">Engenharia Mecânica</span>
-                </div>
-                <div class="row justify-content-end m-2">
-                  <div class="btn-group col-4 mt-auto">
-                    <button type="button" class="btn demanda_btn">Ver demanda</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-              
-            <div class="col-12" data-curso="Enfermagem">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <div class="name_user">
-                    <span>
-                      <img class="imagem-user"  src="/assets/img/ImagemUser.jpg" class="rounded-circle" alt="">
-                      <span class="fs-5 fw-bold user_name">Mariana Teixeira</span>
-                    </span>
-                  </div>
-                  <h4 class="titulo">Montar um plano de cuidados para um paciente com hipertensão arterial</h4>
-                  <p class="card-text mb-0 descricao">Montar um plano de cuidados para um paciente com hipertensão arterial, incluindo orientações de enfermagem.</p>
-                  <span class="curso-tag d-none">Enfermagem</span>
-                </div>
-                <div class="row justify-content-end m-2">
-                  <div class="btn-group col-4 mt-auto">
-                    <button type="button" class="btn demanda_btn">Ver demanda</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-              
-            <div class="col-12" data-curso="Medicina">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <div class="name_user">
-                    <span>
-                      <img  class="imagem-user" src="/assets/img/ImagemUser.jpg" class="rounded-circle" alt="">
-                      <span class="fs-5 fw-bold user_name">Nicolas Ramos</span>
-                    </span>
-                  </div>
-                  <h4 class="titulo">Realizar um estudo de caso clínico sobre diagnóstico diferencial de dor abdominal em adultos jovens.</h4>
-                  <p class="card-text mb-0 descricao">Realizar um estudo de caso clínico sobre diagnóstico diferencial de dor abdominal em adultos jovens.</p>
-                  <span class="curso-tag d-none">Medicina</span>
-                </div>
-                <div class="row justify-content-end m-2">
-                  <div class="btn-group col-4 mt-auto">
-                    <button type="button" class="btn demanda_btn">Ver demanda</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-              
-            <div class="col-12" data-curso="Nutrição">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <div class="name_user">
-                    <span>
-                      <img class="imagem-user"  src="/assets/img/ImagemUser.jpg" class="rounded-circle" alt="">
-                      <span class="fs-5 fw-bold user_name">Olívia Cunha</span>
-                    </span>
-                  </div>
-                  <h4 class="titulo">Elaborar um plano alimentar semanal para um paciente diabético tipo 2</h4>
-                  <p class="card-text mb-0 descricao">Elaborar um plano alimentar semanal para um paciente diabético tipo 2, com restrição de carboidratos.</p>
-                  <span class="curso-tag d-none">Nutrição</span>
-                </div>
-                <div class="row justify-content-end m-2">
-                  <div class="btn-group col-4 mt-auto">
-                    <button type="button" class="btn demanda_btn">Ver demanda</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-              
-            <div class="col-12" data-curso="Odontologia">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <div class="name_user">
-                    <span>
-                      <img class="imagem-user"  src="/assets/img/ImagemUser.jpg" class="rounded-circle" alt="">
-                      <span class="fs-5 fw-bold user_name">Pedro Henrique</span>
-                    </span>
-                  </div>
-                  <h4 class="titulo">Criar um guia de orientação sobre higiene bucal para crianças de 6 a 10 anos</h4>
-                  <p class="card-text mb-0 descricao">Criar um guia de orientação sobre higiene bucal para crianças de 6 a 10 anos, com ilustrações educativas.</p>
-                  <span class="curso-tag d-none">Odontologia</span>
-                </div>
-                <div class="row justify-content-end m-2">
-                  <div class="btn-group col-4 mt-auto">
-                    <button type="button" class="btn demanda_btn">Ver demanda</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-              
-            <div class="col-12" data-curso="Publicidade e Propaganda">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <div class="name_user">
-                    <span>
-                      <img  class="imagem-user" src="/assets/img/ImagemUser.jpg" class="rounded-circle" alt="">
-                      <span class="fs-5 fw-bold user_name">Queila Barbosa</span>
-                    </span>
-                  </div>
-                  <h4 class="titulo">Criar uma campanha publicitária digital para lançamento de um produto sustentável fictício.</h4>
-                  <p class="card-text mb-0 descricao">Criar uma campanha publicitária digital para lançamento de um produto sustentável fictício.</p>
-                  <span class="curso-tag d-none">Publicidade e Propaganda</span>
-                </div>
-                <div class="row justify-content-end m-2">
-                  <div class="btn-group col-4 mt-auto">
-                    <button type="button" class="btn demanda_btn">Ver demanda</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-              
-            <div class="col-12" data-curso="Serviço Social">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <div class="name_user">
-                    <span>
-                      <img  class="imagem-user" src="/assets/img/ImagemUser.jpg" class="rounded-circle" alt="">
-                      <span class="fs-5 fw-bold user_name">Rafael Oliveira</span>
-                    </span>
-                  </div>
-                  <h4 class="titulo">Desenvolver um projeto de intervenção social para famílias em situação de vulnerabilidade em uma comunidade fictícia.</h4>
-                  <p class="card-text mb-0 descricao">Desenvolver um projeto de intervenção social para famílias em situação de vulnerabilidade em uma comunidade fictícia.</p>
-                  <span class="curso-tag d-none">Serviço Social</span>
-                </div>
-                <div class="row justify-content-end m-2">
-                  <div class="btn-group col-4 mt-auto">
-                    <button type="button" class="btn demanda_btn">Ver demanda</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-              
-            <div class="col-12" data-curso="Sistemas de Informação">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <div class="name_user">
-                    <span>
-                      <img  class="imagem-user" src="/assets/img/ImagemUser.jpg" class="rounded-circle" alt="">
-                      <span class="fs-5 fw-bold user_name">Sabrina Costa</span>
-                    </span>
-                  </div>
-                  <h4 class="titulo">Desenvolver um logotipo original para uma empresa fictícia</h4>
-                  <p class="card-text mb-0 descricao">Desenvolver um logotipo original para uma empresa fictícia, aplicando conceitos de design gráfico e identidade visual.</p>
-                  <span class="curso-tag d-none">Sistemas de Informação</span>
-                </div>
-                <div class="row justify-content-end m-2">
-                  <div class="btn-group col-4 mt-auto">
-                    <button type="button" class="btn demanda_btn">Ver demanda</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-              
-            <div class="col-12" data-curso="Técnico em Enfermagem">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <div class="name_user">
-                    <span>
-                      <img  class="imagem-user" src="/assets/img/ImagemUser.jpg" class="rounded-circle" alt="">
-                      <span class="fs-5 fw-bold user_name">Thiago Nunes</span>
-                    </span>
-                  </div>
-                  <h4 class="titulo">Criar um plano de cuidados para um paciente idoso hospitalizado</h4>
-                  <p class="card-text mb-0 descricao">Criar um plano de cuidados para um paciente idoso hospitalizado, com foco em prevenção de lesões por pressão.</p>
-                  <span class="curso-tag d-none">Técnico em Enfermagem</span>
-                </div>
-                <div class="row justify-content-end m-2">
-                  <div class="btn-group col-4 mt-auto">
-                    <button type="button" class="btn demanda_btn">Ver demanda</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+      </div>
+      
+      <div class="d-flex flex-wrap">
 
+          <div class="col-lg-4 d-none d-lg-block mx-2">
+            <div class="text-primary card">
+              <div class="m-2">
+                <h4>Filtros</h4>
+              </div>
+              <form id="form_filter_sidebar">
+                <ul class="list_none">
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="sis_info"
+                      value="Sistemas de Informação"
+                    />
+                    <label for="sis_info">
+                      Sistemas de Informação
+                    </label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="admn"
+                      value="Administração"
+                    />
+                    <label for="admn">Administração</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="cien_bio"
+                      value="Ciências Biológicas"
+                    />
+                    <label for="cien_bio">Ciências Biológicas</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="Cien_conta"
+                      value="Ciências Contábeis"
+                    />
+                    <label for="Cien_conta">Ciências Contábeis</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" id="Dir" value="Direito" />
+                    <label for="Dir">Direito</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" id="desi" value="Design" />
+                    <label for="desi">Design</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="Edu_fis"
+                      value="Educação Física"
+                    />
+                    <label for="Edu_fis">Educação Física</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="Eng_abi"
+                      value="Engenharia ABI"
+                    />
+                    <label for="Eng_abi">Engenharia ABI</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="Eng_ambi"
+                      value="Engenharia Ambiental"
+                    />
+                    <label for="Eng_ambi"
+                      >Engenharia Ambiental</label
+                    >
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="Eng_civ"
+                      value="Engenharia Civil"
+                    />
+                    <label for="Eng_civ">Engenharia Civil</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="Eng_Prod"
+                      value="Engenharia de Produção"
+                    />
+                    <label for="Eng_Prod"
+                      >Engenharia de Produção</label
+                    >
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="Eng_el"
+                      value="Engenharia Elétrica"
+                    />
+                    <label for="Eng_el">Engenharia Elétrica</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="Eng_mec"
+                      value="Engenharia Mecânica"
+                    />
+                    <label for="Eng_mec">Engenharia Mecânica</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" id="Enfer" value="Enfermagem" />
+                    <label for="Enfer">Enfermagem</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" id="Med" value="Medicina" />
+                    <label for="Med">Medicina</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" id="Nutr" value="Nutrição" />
+                    <label for="Nutr">Nutrição</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="Odonto"
+                      value="Odontologia"
+                    />
+                    <label for="Odonto">Odontologia</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="PubProp"
+                      value="Publicidade e Propaganda"
+                    />
+                    <label for="PubProp"
+                      >Publicidade e Propaganda</label
+                    >
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="ServSoc"
+                      value="Serviço Social"
+                    />
+                    <label for="ServSoc">Serviço Social</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="TecEnf"
+                      value="Técnico em Enfermagem"
+                    />
+                    <label for="TecEnf"
+                      >Técnico em Enfermagem</label
+                    >
+                  </li>
+                </ul>
 
+                <div class="row justify-content-end m-2">
+                  <div class="btn-group col-auto mt-auto">
+                    <button
+                      type="reset"
+                      form="form_filter_sidebar"
+                      class="btn demanda_btn"
+                      id="clear_filter"
+                    >
+                      Limpar
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
 
+          <!-- cards -->
+          <div class="col-12 col-lg-6">
+            <div class="d-flex justify-content-center">
+              <div class="row row_cards" id="tarefa-list">
+                <!-- inicio dos cards de exemplo -->
 
-
-
-            
-            
-            <!-- fim das demandas de exemplo -->
-
-
-
+                <!-- fim das demandas de exemplo -->
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-
-
-    <dialog class=" login_dialog" id="logoutDialog">
-      <p class=" fs-5">Poxa, já vai?</p>
-      <img src="/assets/img/sad_cow.gif" alt="" srcset="">
+    <dialog class="login_dialog" id="logoutDialog">
+      <p class="fs-5">Poxa, já vai?</p>
+      <img src="/assets/img/sad_cow.gif" alt="" srcset="" />
     </dialog>
 
     <!-- footer início -->

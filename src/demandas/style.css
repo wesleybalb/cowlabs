@@ -188,6 +188,16 @@ main {
   height: 415px;
 } */
 
+textarea{
+  height: 200px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+  border-radius: 5px;
+  border: solid lightgrey 1px;
+
+}
+
 #imagem-user, .imagem-user{
   width: 30px;
 }

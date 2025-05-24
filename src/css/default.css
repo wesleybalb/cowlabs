@@ -29,6 +29,10 @@ body, html {
    place-items: center;
   
   }
+
+  .list_none{
+    list-style: none;
+  }
   
   .texto_justificado{
     text-align: justify;
@@ -209,7 +213,11 @@ body, html {
 
 
 
-
+ .milk_box{
+  width: 50px;
+  display: flex;
+  
+ }
 
   
   #contact {
