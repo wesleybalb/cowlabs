@@ -278,4 +278,3 @@ function demandasFakeDB(){
 
     inicialization()
     demandasFakeDB()
-    

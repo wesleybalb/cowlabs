@@ -96,19 +96,19 @@ function profileConstructor(){
         <li><a class="dropdown-item text-end" href="../demandas/index.html">Ver Demandas</a></li>
         <li><a class="dropdown-item text-end" href="#">${user[0].name}</a></li>
         <li><a class="dropdown-item text-end" href="#">${user[0].curso}</a></li>
-        <li><a class="dropdown-item text-end" href="#">${user[0].tipo}</a></li>
-
+        <li><a class=" admin dropdown-item text-end" href="#">${user[0].tipo}</a></li>
     `
     console.log(user[0].name)
+
+    console.log(user[0].tipo)
+
+    const admin = document.querySelector(".admin")
+
+    admin.addEventListener('click', function(){
+        location.href = "/src/adminView/index.html"
+    })
+
 }
-
-
-const LogoutDialog = `
-    <dialog class=" login_dialog" id="logoutDialog">
-      <p class=" fs-5">Poxa, já vai?</p>
-      <img src="/assets/img/sad_cow.gif" alt="" srcset="">
-    </dialog>
-` 
 
 
 function logout(){
@@ -126,7 +126,5 @@ function logout(){
     }, 3000);
     
 }
-
-
 
 profileConstructor()

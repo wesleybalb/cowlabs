@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <title>CowLabs</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="shortcut icon" href="https://cowlabs.com.br/assets/img/favicon.ico" type="image/favicon">
+    <link rel="stylesheet" href="/src/css/default.css" />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- header inicio -->
+    <nav class="navbar navbar-expand-md bg-primary navbar-dark absolute-top py-3">
+      <div class="container" id="cabecalho">
+
+        <a class="navbar-brand fw-bold text-light d-flex align-items-center" href="/src/home/index.html">
+          CowLabs
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScrollSpy" aria-controls="navbarScrollSpy" aria-expanded="false" aria-label="Alternar navegação">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="d-flex" id="loginOrLoged">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle btn profile_img" data-bs-toggle="dropdown" role="button" aria-expanded="false" id="profile_img">
+                <img src="/assets/img/ImagemUser.jpg" alt="" />
+              </a>
+              <ul class="dropdown-menu custom-mobile-dropdown">
+                <div id="profile_list"></div>
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                  <button class="dropdown-item" role="button" id="logout" onclick="logout()">Logout</button>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+    <!-- fim da header -->
+
+    <div class="container">
+      <div>
+        <h1 class="saudacao pt-3"></h1>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <p class="pt-4">
+            <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#btnCollapseAlunos" aria-expanded="false" aria-controls="btnCollapseAlunos">
+              Abra o menu de alunos
+            </button>
+          </p>
+          <div class="collapse collapse-horizontal" id="btnCollapseAlunos">
+            <div class="card card-body cardGrande" style="width: 100%;">
+              <ul id="UserList">
+                <li id="usuarios" type="button" data-bs-toggle="collapse" data-bs-target="#btnExpandirAlunos" aria-expanded="false" aria-controls="btnExpandirAlunos">
+                  <!-- Conteúdo do usuário será inserido aqui via JS -->
+                </li>
+              </ul>
+            </div>
+            <button class="btn btn-danger mt-4" id="btn-excluirAll" onclick="exluirAll()" type="button">
+              Excluir usuários
+            </button>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="collapse collapse-horizontal" id="btnExpandirAlunos">
+            <div class="card card-body" style="width: 100%; margin-top: 80px;">
+              <div class="btn-admin d-flex justify-content-end">
+                <i class="bi bi-exclamation-triangle"></i>
+                <i class="bi bi-pencil btn-editar"></i>
+                <i class="bi bi-trash btn-excluir"></i>
+              </div>
+              <ul>
+                <li class="credenciaisAlunos">
+                  <!-- Dados do usuário expandido -->
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+        <!-- Modal -->
+<div class="modal fade" id="meuModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Perigo!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        Essa ação <span class="text-red">exluirá </span>todos os usuários, insira sua senha para confirmar
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-warning btnConfirma" data-bs-dismiss="modal">Tenho certeza do que estou fazendo</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="/PluginsJQUERY/jquery.mask.min.js"></script>
+    <script src="/PluginsJQUERY/jquery.validate.min.js"></script>
+    <script src="/PluginsJQUERY/messages_pt_BR.min.js"></script>
+    <script src="script.js"></script>
+    <script src="/src/script/default.js"></script>
+  </body>
+</html>
