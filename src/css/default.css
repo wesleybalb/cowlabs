@@ -25,11 +25,13 @@ body, html {
     font-family: 'JetBrains Mono', monospace;
   }
   
-  
-  
   #texto_centralizado{
    place-items: center;
   
+  }
+
+  .list_none{
+    list-style: none;
   }
   
   .texto_justificado{
@@ -211,7 +213,11 @@ body, html {
 
 
 
-
+ .milk_box{
+  width: 50px;
+  display: flex;
+  
+ }
 
   
   #contact {
@@ -259,7 +265,8 @@ body, html {
   i{
     font-size: 20px;
   }
-
+  
+  
   .login_dialog{
     border-radius: 15px;
     border: none;
@@ -286,5 +293,4 @@ body, html {
       transform: translateY(0px);
     }
   }
-  
   

@@ -28,11 +28,9 @@
       <div class="collapse navbar-collapse justify-content-between" id="navbarScrollSpy">
         
         <ul class="navbar-nav mx-auto mb-2 mb-md-0">
+          
           <li class="nav-item">
-            <a href="/src/home/index.html" class="nav-link text-white l ">Home</a>
-          </li>
-          <li class="nav-item">
-            <a href="/src/faq/index.html" class="nav-link text-dark fw-bold ink-dark px-2">FAQs</a>
+            <a href="/src/faq/index.html" class="nav-link text-white px-2">FAQs</a>
           </li>
           <li class="nav-item">
             <a href="/src/sobre/index.html" class="nav-link text-white px-2">Sobre</a>
@@ -43,20 +41,17 @@
         </ul>
   
         <div class="d-flex" id="loginOrLoged">
-          <li class="nav-item dropdown list-unstyled">
+          <li class="nav-item dropdown none list-unstyled">
             <a class="nav-link dropdown-toggle btn profile_img" data-bs-toggle="dropdown" role="button" aria-expanded="false" id="profile_img">
               <img src="/assets/img/ImagemUser.jpg" alt="" />
             </a>
-            <ul class="dropdown-menu custom-mobile-dropdown">
+            <ul class="dropdown-menu dropdown-menu-end">
               <div id="profile_list"></div>
               <li><hr class="dropdown-divider"></li>
-              <li>
-                <button class="dropdown-item" role="button" id="logout" onclick="logout()">Logout</button>
-              </li>
+              <li><button class="dropdown-item" role="button" id="logout" onclick="logout()">Logout</button></li>
             </ul>
           </li>
         </div>
-        
   
       </div>
     </div>
@@ -179,6 +174,7 @@
             <a
               class="navbar-brand align-middle d-flex align-items-center"
               href="https://cowlabs.com.br/src/home/index.htm"
+              style="font-weight: bold"
             >
               CowLabs
             </a>

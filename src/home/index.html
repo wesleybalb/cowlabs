@@ -13,49 +13,52 @@
   </head>
   <body>
   <!-- header inicio -->
-  <nav class="navbar navbar-expand-md bg-primary navbar-dark absolute-top py-3">
-    <div class="container" id="cabecalho">
+  <nav class="navbar navbar-expand-md bg-primary navbar-dark absolute-top   text-start py-3 ">
+    <div class="container text-start" id="cabecalho">
   
-      <a class="navbar-brand fw-bold text-light d-flex align-items-center" href="https://cowlabs.com.br/src/home/index.htm">
-        CowLabs
-      </a>
+      <div class="row ">
+        <div class="col-6 p-0 m-0 justify_center">
+          <img class="milk_box" src="/assets/img/milk_box.png" alt="" srcset="">
+        </div>
+        <div class="col-6 d-flex align-items-center text-start p-0 m-0">
+          <a class="navbar-brand fw-bold text-light " href="https://cowlabs.com.br/src/home/index.htm">
+            CowLabs
+          </a>
+        </div>
+      </div>
   
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScrollSpy" aria-controls="navbarScrollSpy" aria-expanded="false" aria-label="Alternar navegação">
         <span class="navbar-toggler-icon"></span>
       </button>
   
-      <div class="collapse navbar-collapse justify-content-between" id="navbarScrollSpy">
+      <div class="collapse navbar-collapse text-start justify-content-between" id="navbarScrollSpy">
         
-        <ul class="navbar-nav mx-auto mb-2 mb-md-0">
-          <li class="nav-item">
-            <a href="#" class="nav-link link-dark fw-bold px-3s">Home</a>
-          </li>
-          <li class="nav-item">
-            <a href="/src/faq/index.html" class="nav-link text-white px-2">FAQs</a>
-          </li>
-          <li class="nav-item">
-            <a href="/src/sobre/index.html" class="nav-link text-white px-2">Sobre</a>
-          </li>
-          <li class="nav-item">
-            <a href="/src/talkUs/index.html" class="nav-link text-white px-2">Fale Conosco</a>
-          </li>
-        </ul>
-        
-        <div class="d-flex" id="loginOrLoged">
-          <li class="nav-item dropdown list-unstyled">
+        <div class="text-start mx-4">
+          <ul class="navbar-nav mx-auto text-start mb-md-0">
+            <li class="nav-item">
+              <a href="/src/faq/index.html" class="nav-link text-white px-2">FAQs</a>
+            </li>
+            <li class="nav-item">
+              <a href="/src/sobre/index.html" class="nav-link text-white px-2">Sobre</a>
+            </li>
+            <li class="nav-item">
+              <a href="#contact" class="nav-link text-white px-2">Fale Conosco</a>
+            </li>
+          </ul>
+        </div>
+  
+        <div class="d-flex text-end" id="loginOrLoged">
+          <li class="nav-item dropdown none list-unstyled">
             <a class="nav-link dropdown-toggle btn profile_img" data-bs-toggle="dropdown" role="button" aria-expanded="false" id="profile_img">
               <img src="/assets/img/ImagemUser.jpg" alt="" />
             </a>
-            <ul class="dropdown-menu ">
+            <ul class="dropdown-menu dropdown-menu-end">
               <div id="profile_list"></div>
               <li><hr class="dropdown-divider"></li>
-              <li>
-                <button class="dropdown-item" role="button" id="logout" onclick="logout()">Logout</button>
-              </li>
+              <li><button class="dropdown-item" role="button" id="logout" onclick="logout()">Logout</button></li>
             </ul>
           </li>
         </div>
-        
   
       </div>
     </div>
@@ -97,6 +100,49 @@
         </p>
         
       </section>
+      <div data-bs-spy="scroll" data-bs-target="cabecalho">
+        <section id="contact" class="py-4 bg-light  ">
+          <div class="container ">
+              <div class="row">
+                  <div class="col-12">
+                      <p class="text-center text-dark-gray lead" ><a class="btn bi-chat-dots-fill blue-text btn-outline-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> Fale Conosco</a></p>
+        
+                  </div>
+              </div>
+            <div class="collapse" id="collapseExample"  >
+                <p class="text-center lead text-dark-gray ">
+                  Entre em contato com o nosso time de suporte, caso encontre alguma dificuldade em nosso site. <br> Entraremos em contato tão logo seja possível analisar sua mensagem.
+                </p>
+                <div class="row ">
+                  <div class="col-md-8 mx-auto">
+                    <form>
+                      <div class="form-group">
+                        <label for="nome">Seu Nome</label>
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu Nome" />
+                      </div>
+                      <div class="form-group">
+                        <label for="email">Seu E-mail</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Seu E-mail" />
+                      </div>
+                      <div class="form-group">
+                        <label for="telefone">Seu Telefone (opcional)</label>
+                        <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="Seu Telefone" />
+                      </div>
+                      <div class="form-group">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea class="form-control" id="mensagem" name="mensagem" rows="4" placeholder="Sua Mensagem"></textarea>
+                      </div>
+                      <div class="justify_center"><button type="submit" class="btn btn-outline-primary" id="forms_btn">Enviar</button></div>
+                      <!-- usado para mensagem de alerta com plugins do Jquery!! -->
+                      <div id="alerta" class="alert alert-danger d-none mt-3"></div>
+                      <div id="success" class="alert alert-success d-none mt-3"></div>
+                    </form>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
 
     
