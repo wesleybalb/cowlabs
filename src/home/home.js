@@ -148,6 +148,5 @@ $(document).ready(function() {
             ))
         }
     }
-    
+
     inicialization()
-    

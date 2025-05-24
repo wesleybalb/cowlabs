@@ -61,6 +61,7 @@ function showUser(){
 
 userInjection()
 
+
 //função que pode ser usada permanecendo na tela, ou para sumir fica a critério do grupo, deixei na tela, podemos colocar outra coisa tambem
 function exibeNome(){
     const user = JSON.parse(localStorage.getItem("LogedUser"))
@@ -74,20 +75,47 @@ function exibeNome(){
     setTimeout(() => {
         saudacao.style.display = 'none'
     }, 4000);
-    // console.log(user + 'aaaa')
+     console.log(user[0].name + 'aaaa')
 }
 
 exibeNome()
 
 //função excluir usuario
 
-function excluirUser(index){
+function excluirUser(){
+    showUser()
     const excluirUsuario = document.querySelector('.btn-excluir')
     
     const listaUsers = JSON.parse(localStorage.getItem("RegisterUser"))
         excluirUsuario.addEventListener('click', function() {
-            listaUsers.splice(index, 1)
+
+            listaUsers.find(usuarioSelecionado.name) ={}
+            listaUsers.splice(posicao, 1)
+
             localStorage.setItem("registerUser", JSON.stringify(listaUsers))
+
+            console.log(listaUsers)
         })
 }
 
+function exluirAll() {
+    const modal = new bootstrap.Modal(document.getElementById('meuModal'))
+    modal.show()
+
+    const btnConfirma = document.querySelector('.btnConfirma')
+
+    btnConfirma.addEventListener('click', function () {
+        const user = JSON.parse(localStorage.getItem("LogedUser"))
+
+            const usuarioLogado = user[0]
+
+            localStorage.clear()
+            localStorage.setItem("RegisterUser", JSON.stringify([usuarioLogado]))
+            // Salva o usuario atual como o unico item da lista de usuarios cadastrados
+
+            localStorage.setItem("LogedUser", JSON.stringify([usuarioLogado]))
+            // Garante que o usuário continue logado após a limpeza do localStorage
+
+            location.reload()
+    })
+}
