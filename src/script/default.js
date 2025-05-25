@@ -110,6 +110,13 @@ function profileConstructor(){
 
 }
 
+const LogoutDialog = `
+    <dialog class=" login_dialog" id="logoutDialog">
+      <p class=" fs-5">Poxa, já vai?</p>
+      <img src="/assets/img/sad_cow.gif" alt="" srcset="">
+    </dialog>
+` 
+
 
 function logout(){
     document.body.innerHTML += LogoutDialog

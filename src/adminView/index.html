@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="shortcut icon" href="https://cowlabs.com.br/assets/img/favicon.ico" type="image/favicon">
     <link rel="stylesheet" href="/src/css/default.css" />
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
   </head>
   <body>
     <!-- header inicio -->
@@ -47,15 +47,10 @@
     <!-- fim da header -->
 
     <div class="container">
-      <div>
-        <h1 class="saudacao pt-3"></h1>
-      </div>
-    </div>
-
-    <div class="container">
       <div class="row">
         <div class="col-lg-6">
-          <p class="pt-4">
+          <h1 class="saudacao"></h1>
+          <p class="pt-4 ">
             <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#btnCollapseAlunos" aria-expanded="false" aria-controls="btnCollapseAlunos">
               Abra o menu de alunos
             </button>
@@ -68,9 +63,18 @@
                 </li>
               </ul>
             </div>
-            <button class="btn btn-danger mt-4" id="btn-excluirAll" onclick="exluirAll()" type="button">
-              Excluir usuários
-            </button>
+            <div id="buttons">
+              <button class="btn btn-danger mt-4 " id="btn-excluirAll" onclick="exluirAll()" type="button">
+                Excluir Todos Os usuários
+              </button>
+
+              <button class="btn btn-success mt-4 d-none " onclick="retoreDefault()" id="Savior" type="button">
+                Restaurar Default
+              </button> 
+
+              
+
+            </div>
           </div>
         </div>
 
@@ -82,7 +86,7 @@
                 <i class="bi bi-pencil btn-editar"></i>
                 <i class="bi bi-trash btn-excluir"></i>
               </div>
-              <ul>
+              <ul class="list_none">
                 <li class="credenciaisAlunos">
                   <!-- Dados do usuário expandido -->
                 </li>
@@ -90,6 +94,7 @@
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
     
