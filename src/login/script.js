@@ -19,6 +19,7 @@ function validaLogin(e) {
             localStorage.setItem("LogedUser", JSON.stringify([
                 {
                     name: chekDefUser.name,
+                    realname:chekDefUser.Realname,
                     tipo: chekDefUser.Tipo,
                     curso: chekDefUser.curso,
                     email: chekDefUser.email,

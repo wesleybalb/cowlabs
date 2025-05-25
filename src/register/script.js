@@ -78,7 +78,6 @@ document.querySelector("#CEP").onblur = async function(e){
             document.querySelector("#endereco").value = dados.logradouro
             
             document.querySelector("#numero").focus()
-          
         }
         
     }else{
@@ -211,5 +210,3 @@ function redirectLogin(){
     }, 3000);
     
 }
-
-
