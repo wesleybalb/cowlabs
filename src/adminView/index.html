@@ -68,6 +68,10 @@
                 Excluir Todos Os usuários
               </button>
 
+              <button class="btn btn-danger mt-4 " id="btn-excluirDemandas" onclick="exluirAllDemandas()" type="button">
+                Excluir todas as demandas
+              </button>
+
               <button class="btn btn-success mt-4 d-none " onclick="retoreDefault()" id="Savior" type="button">
                 Restaurar Default
               </button> 
@@ -107,11 +111,30 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
       </div>
       <div class="modal-body">
-        Essa ação <span class="text-red">exluirá </span>todos os usuários, insira sua senha para confirmar
+        Essa ação <span class="text-red">exluirá </span>todos os usuários, clique no botão em amarelo para confirmar
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
         <button type="button" class="btn btn-warning btnConfirma" data-bs-dismiss="modal">Tenho certeza do que estou fazendo</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="meuModalDemandas" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Perigo!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        Essa ação <span class="text-red">exluirá </span>todas as demandas, clique no botão em amarelo para confirmar
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-warning btnExcluiDemandas" data-bs-dismiss="modal">Tenho certeza do que estou fazendo</button>
       </div>
     </div>
   </div>

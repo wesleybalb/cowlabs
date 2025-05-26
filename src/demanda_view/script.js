@@ -2,9 +2,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const dados = JSON.parse(localStorage.getItem("demandaSelecionada"));
 
     if (dados) {
-      document.querySelector("#nomeUsuario").textContent = dados.usuario;
-      document.querySelector("#tituloDemanda").textContent = dados.titulo;
-      document.querySelector("#descricaoDemanda").textContent = dados.descricao;
+        document.querySelector("#nomeUsuario").textContent = dados.usuario;
+        document.querySelector("#tituloDemanda").textContent = dados.titulo;
+        document.querySelector("#descricaoDemanda").textContent = dados.descricao;
     }
 });
 
@@ -21,7 +21,7 @@ function comentar(e){
 
     comentarios.innerHTML += `
         <div class="card card_coment m-2">
-             <div class="name_user m-2">
+            <div class="name_user m-2">
                 <span>
                     <img src="/assets/img/ImagemUser.jpg" class="imagem-user rounded-circle" alt="">
                     <span class="fs-5 fw-bold user_name">${user[0].name}</span>

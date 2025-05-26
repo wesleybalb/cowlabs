@@ -112,6 +112,25 @@ document.querySelector(`.btn-excluir`).addEventListener(`click`, (e)=>{
 //     // })
     
 // }
+function exluirAllDemandas() {
+    const modal = new bootstrap.Modal(document.getElementById('meuModalDemandas'))
+    modal.show()
+
+    const btnExcluiDemandas = document.querySelector('.btnExcluiDemandas')
+
+    btnExcluiDemandas.addEventListener('click', function(){
+        excluirDemandas()
+    })
+}
+
+function excluirDemandas(){
+    localStorage.removeItem("DemandasFakeDB")
+    localStorage.setItem("DemandasFakeDB", JSON.stringify({}))
+
+    alert("Todas as demandas foram excluídas com sucesso.")
+    
+
+}
 
 function exluirAll() {
     const modal = new bootstrap.Modal(document.getElementById('meuModal'))
