@@ -319,9 +319,7 @@ function spliceUser(name) {
 
     alert(`Usuário "${userFind.name}" foi excluído.`);
 
-    location.reload(); // Recarrega a página após exclusão
-
-    alert("usuário removido")
+    location.reload(); 
 
     return newUserList;
   } else {
