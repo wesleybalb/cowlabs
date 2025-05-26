@@ -268,7 +268,7 @@ function demandasFakeDB(){
             file_location: ""
         }];
 
-      if(!localStorage.getItem("DemandasFakeDB")){
+      if(!localStorage.getItem("DemandasFakeDB")  || localStorage.getItem("DemandasFakeDB") === "{}" ){
         localStorage.setItem("DemandasFakeDB", JSON.stringify(demandas))
         }
 
