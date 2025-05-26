@@ -51,8 +51,11 @@
         <div class="col-lg-6">
           <h1 class="saudacao"></h1>
           <p class="pt-4 ">
-            <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#btnCollapseAlunos" aria-expanded="false" aria-controls="btnCollapseAlunos">
+            <button class="btn btn-danger mt-4" type="button" data-bs-toggle="collapse" data-bs-target="#btnCollapseAlunos" aria-expanded="false" aria-controls="btnCollapseAlunos">
               Abra o menu de alunos
+            </button>
+            <button class="btn btn-danger mt-4 " id="btn-excluirDemandas" onclick="exluirAllDemandas()" type="button">
+              Excluir todas as demandas
             </button>
           </p>
           <div class="collapse collapse-horizontal" id="btnCollapseAlunos">
@@ -68,9 +71,6 @@
                 Excluir Todos Os usuários
               </button>
 
-              <button class="btn btn-danger mt-4 " id="btn-excluirDemandas" onclick="exluirAllDemandas()" type="button">
-                Excluir todas as demandas
-              </button>
 
               <button class="btn btn-success mt-4 d-none " onclick="retoreDefault()" id="Savior" type="button">
                 Restaurar Default

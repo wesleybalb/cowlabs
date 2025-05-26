@@ -140,6 +140,7 @@ function exluirAll() {
 
     btnConfirma.addEventListener('click', limparUsers)
     refresh()
+    
 
 }
 
@@ -169,6 +170,8 @@ function limparUsers() {
     refresh()
 
     addSavior()
+
+    alert("Apenas o usuário logado foi mantido. Todos os demais foram excluídos")
 
 }
 
@@ -288,6 +291,7 @@ function retoreDefault() {
             },
         ]
     ))
+    alert("Registro de usuários restaurado para o padrão")
     addSavior()
     refresh()
 }
@@ -316,6 +320,8 @@ function spliceUser(name) {
     alert(`Usuário "${userFind.name}" foi excluído.`);
 
     location.reload(); // Recarrega a página após exclusão
+
+    alert("usuário removido")
 
     return newUserList;
   } else {
