@@ -86,7 +86,7 @@ function profileConstructor(){
                     profileImg.innerHTML = '<img class="aluno" src="/assets/img/profile_img/Tecnico_em_Enfermagem.png" alt="" srcset="">'
                     break;
                 default:
-                    text = "I have never heard of that fruit...";
+                    text = "I'm a Cow in a Lab Cowlaborating with my fellow cows to create the best milk products in the world!";
             }
         }
     
@@ -135,3 +135,4 @@ function logout(){
 }
 
 profileConstructor()
+
