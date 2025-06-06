@@ -15,9 +15,10 @@ export default function UserContent() {
           <ProfilePicture />
           <Trophies />
 
+         
           <UserProgress/>
-          
-        </div>
+        </div> 
+        
       </div>
     </>
   );

@@ -1,12 +1,26 @@
 import ProfileImage from "./ProfileImage";
+import {useState} from "react"
 
 export default function ProfilePicture() {
   
-
-
   const userChecker = JSON.parse(localStorage.getItem("LogedUser"));
   const user = userChecker[0];
   
+  const [nota, setNota] = useState(0)
+  const [stars, setStars] = useState([0,0,0,0,0])
+
+  
+
+  function avaliar(e){
+    const value = e.target.dataset.value
+    setNota(value)
+    const newStars = stars.map((v,i)=>i<value?0:1)
+    console.log(newStars)
+    setStars(newStars)
+
+
+  }
+
 
   return (
     <>
@@ -23,14 +37,14 @@ export default function ProfilePicture() {
                     <div className="container mt-5">
                       <h5>Avalie este perfil:</h5>
                       <div id="rating" className="d-flex gap-2 fs-3">
-                        <i className="bi bi-star" data-value="1"></i>
-                        <i className="bi bi-star" data-value="2"></i>
-                        <i className="bi bi-star" data-value="3"></i>
-                        <i className="bi bi-star" data-value="4"></i>
-                        <i className="bi bi-star" data-value="5"></i>
+                        <i className={`bi ${stars[0]?"bi-star":"bi-star-fill"}`} data-value="1" onClick={avaliar}></i>
+                        <i className={`bi ${stars[1]?"bi-star":"bi-star-fill"}`} data-value="2"  onClick={avaliar}></i>
+                        <i className={`bi ${stars[2]?"bi-star":"bi-star-fill"}`} data-value="3" onClick={avaliar}></i>
+                        <i className={`bi ${stars[3]?"bi-star":"bi-star-fill"}`} data-value="4" onClick={avaliar}></i>
+                        <i className={`bi ${stars[4]?"bi-star":"bi-star-fill"}`} data-value="5" onClick={avaliar}></i>
                       </div>
                       <p className="mt-2" id="rating-value">
-                        Nota: 0
+                        Nota: {nota}
                       </p>
                     </div>
                     <img

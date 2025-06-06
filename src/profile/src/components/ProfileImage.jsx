@@ -1,25 +1,25 @@
 import { useState } from "react";
 
 export default function ProfileImage() {
-  const picProfile = {
-    width: "150px",
-    height: "150px",
-  };
+    const picProfile = {
+        width: "150px",
+        height: "150px",
+    };
 
-  const userChecker = JSON.parse(localStorage.getItem("LogedUser"));
-  const user =  userChecker[0];
+    const userChecker = JSON.parse(localStorage.getItem("LogedUser"));
+    const user = userChecker[0];
 
-    let ProfileImg = '/src/assets/img/ImagemUser.jpg';  
+    let ProfileImg = '/src/assets/img/ImagemUser.jpg';
 
-  if(user.tipo == "Admin"){
+    if (user.tipo == "Admin") {
         ProfileImg = '/src/assets/img/profile_img/Admin.png';
 
-    }else{
-        if(user.tipo == "Professor"){
+    } else {
+        if (user.tipo == "Professor") {
             ProfileImg = '/src/assets/img/profile_img/Professor.png';
-            
-        }else{
-            switch(user.curso) {
+
+        } else {
+            switch (user.curso) {
                 case "Sistemas de Informação":
                     ProfileImg = '/src/assets/img/profile_img/SI.png'
                     break;
@@ -84,39 +84,33 @@ export default function ProfileImage() {
                     text = "I'm a Cow in a Lab Cowlaborating with my fellow cows to create the best milk products in the world!";
             }
         }
-        
+
     }
 
 
-
-
-
-
-
-
-  return (
-    <>
-      <div
-        className="profile-picture rounded-circle border border-3 border-primary overflow-hidden"
-        style={picProfile}
-      >
-        <img
-          src={ProfileImg}
-          className="w-100 h-100 object-fit-cover"
-        />
-        <div
-          className="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-dark bg-opacity-50"
-          // onClick="document.getElementById('image-input').click()"
-        >
-          <i className="bi bi-camera-fill text-white fs-4"></i>
-        </div>
-        <input
-          type="file"
-          id="image-input"
-          className="d-none"
-          // onchange="handleFileUpload(event)"
-        />
-      </div>
-    </>
-  );
+    return (
+        <>
+            <div
+                className="profile-picture rounded-circle border border-3 border-primary overflow-hidden"
+                style={picProfile}
+            >
+                <img
+                    src={ProfileImg}
+                    className="w-100 h-100 object-fit-cover"
+                />
+                <div
+                    className="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-dark bg-opacity-50"
+                // onClick="document.getElementById('image-input').click()"
+                >
+                    <i className="bi bi-camera-fill text-white fs-4"></i>
+                </div>
+                <input
+                    type="file"
+                    id="image-input"
+                    className="d-none"
+                // onchange="handleFileUpload(event)"
+                />
+            </div>
+        </>
+    );
 }
