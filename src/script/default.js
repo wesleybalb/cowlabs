@@ -94,7 +94,7 @@ function profileConstructor(){
 
     profileList.innerHTML = `
         <li><a class="dropdown-item text-end" href="../demandas/index.html">Ver Demandas</a></li>
-        <li><a class="dropdown-item text-end" href="#">${user[0].name}</a></li>
+        <li><a id = "perfil" class="dropdown-item text-end" href="#">${user[0].name}</a></li>
         <li><a class="dropdown-item text-end" href="#">${user[0].curso}</a></li>
         <li><a class=" admin dropdown-item text-end" href="#">${user[0].tipo}</a></li>
     `
@@ -106,8 +106,11 @@ function profileConstructor(){
 
     admin.addEventListener('click', function(){
         location.href = "/src/adminView/index.html"
+
     })
 
+    document.querySelector("#perfil").addEventListener('click', function(){
+        location.href = "/src/profile/index.html"})
 }
 
 const LogoutDialog = `
