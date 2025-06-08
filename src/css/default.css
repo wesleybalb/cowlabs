@@ -158,11 +158,12 @@ body, html {
   }
   
   .profile_img{
-    width: 95px;
+    width: auto;
     color: white;
-    border: white solid;
-    border-radius: 30px;
+    /* border: white solid; */
+    border-radius: 100%;
     
+        
     img{
       background-color: white;
       width: 50px;
