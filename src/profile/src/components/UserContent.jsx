@@ -10,13 +10,15 @@ export default function UserContent() {
 
   return (
     <>
-      <div className="container py-5">
-        <div className="row g-4">
-          <ProfilePicture />
-          <Trophies />
-
-         
-          <UserProgress/>
+      <div className="container py-4 ">
+        <div className="row">
+  
+          <div className="col-lg-8">
+            <ProfilePicture />
+            <Trophies />
+          </div>
+  
+          <div className="col-lg-4"><UserProgress/></div>
         </div> 
         
       </div>

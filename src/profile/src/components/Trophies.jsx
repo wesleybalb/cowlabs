@@ -9,16 +9,18 @@ export default function Trophies() {
 
   return (
     <>
-      <div className="card card-custom p-3 mt-4">
-        <div className="d-flex align-items-center">
-          <div className="text-warning fs-3">
-            <i className="bi bi-award"></i>
-          </div>
-          <div>
-            <strong>Exibição de troféus</strong>
-            <p className="mb-0">
-              Mostre seus melhores reconhecimentos e conquistas aqui!
-            </p>
+      <div className="pb-4">
+        <div className="card card-custom p-3 mt-4">
+          <div className="d-flex align-items-center">
+            <div className="text-warning fs-3">
+              <i className="bi bi-award"></i>
+            </div>
+            <div>
+              <strong>Exibição de troféus</strong>
+              <p className="mb-0">
+                Mostre seus melhores reconhecimentos e conquistas aqui!
+              </p>
+            </div>
           </div>
         </div>
       </div>

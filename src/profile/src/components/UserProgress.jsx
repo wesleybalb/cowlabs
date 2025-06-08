@@ -18,8 +18,8 @@ export default function UserProgress() {
   
     return (
     <>
-      <div className="col-lg-4">
-        <div className="card card-custom p-3">
+      <div className="">
+        <div className="card card-custom p-3 m">
           <h5>Preenchimento do perfil</h5>
           <h2 className="text-success">68%</h2>
           <div className="progress mb-2" style={styleProgress}>

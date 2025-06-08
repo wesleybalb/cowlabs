@@ -24,7 +24,7 @@ export default function ProfilePicture() {
 
   return (
     <>
-          <div className="col-lg-8">
+          <div className=" ">
             <div className="card card-custom p-4">
               <div className="d-flex align-items-center gap-3">
                 <div className="position-relative">
