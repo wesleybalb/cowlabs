@@ -45,7 +45,7 @@ export default function LoginOrProfile() {
               <li>
                 <a
                   className="dropdown-item text-end"
-                  href="../demandas/index.html"
+                  href="https://cowlabs.com.br/src/demandas/index.html"
                 >
                   Ver Demandas
                 </a>
