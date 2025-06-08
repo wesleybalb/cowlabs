@@ -110,7 +110,7 @@ function profileConstructor(){
     })
 
     document.querySelector("#perfil").addEventListener('click', function(){
-        location.href = "/src/profile/index.html"})
+        location.href = "/src/profile/dist/index.html"})
 }
 
 const LogoutDialog = `
