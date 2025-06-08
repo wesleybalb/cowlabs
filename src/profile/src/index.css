@@ -54,3 +54,29 @@
     cursor: pointer;
     transition: color 0.2s;
   }
+
+  .profile_img{
+    width: 95px;
+    color: white;
+    /* border: white solid; */
+    border-radius: 30px;
+    
+    img{
+      background-color: white;
+      width: 50px;
+      border-radius: 100%;
+    }
+
+    .aluno{
+      border: solid 3px greenyellow;
+    }
+
+    .professor{
+      border: solid 3px orange;
+    }
+
+    .Admin{
+      border: solid 3px red;
+    }
+
+  }
