@@ -102,7 +102,7 @@ function profileConstructor(){
 
     console.log(user[0].tipo)
 
-    const admin = document.querySelector(".admin")
+    const admin = document.querySelector(".Admin")
 
     admin.addEventListener('click', function(){
         location.href = "/src/adminView/index.html"
