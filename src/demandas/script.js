@@ -79,7 +79,7 @@ function montademanda(){
     });
 }
 
-
+// 
 function cardConstructor(){
     const cardFakeDB = JSON.parse(localStorage.getItem("DemandasFakeDB"))
     
@@ -196,6 +196,7 @@ function filter(formID) {
 document.getElementById("form_filter_sidebar").addEventListener('change', () => {
   filter("form_filter_sidebar");
 });
+
 document.getElementById("form_filter_dropdown").addEventListener('change', () => {
   filter("form_filter_dropdown");
 });

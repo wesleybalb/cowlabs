@@ -122,6 +122,8 @@ const LogoutDialog = `
 
 
 function logout(){
+
+    
     document.body.innerHTML += LogoutDialog
 
 
