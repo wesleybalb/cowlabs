@@ -14,6 +14,7 @@ function profileConstructor(){
             </a>
         
         `
+        return
     }
 
     if(user[0].tipo == "Admin"){
@@ -94,7 +95,7 @@ function profileConstructor(){
 
     profileList.innerHTML = `
         <li><a class="dropdown-item text-end" href="https://cowlabs.com.br/src/demandas/index.html">Ver Demandas</a></li>
-        <li><a id = "perfil" class="dropdown-item text-end" href="/src/profile/dist/index.html">${user[0].name}</a></li>
+        <li><a id = "perfil" class="dropdown-item text-end" href="/src/profile/index.html">${user[0].name}</a></li>
         <li><a class="dropdown-item text-end" href="#">${user[0].curso}</a></li>
         <li><a class=" ${user[0].tipo} dropdown-item text-end" href="#">${user[0].tipo}</a></li>
     `

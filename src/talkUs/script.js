@@ -1,39 +1,38 @@
-function inicialization (){
-    const logedCheker = document.getElementById("logedCheker")
+// function inicialization (){
+//     const logedCheker = document.getElementById("logedCheker")
     
-    const LogedUser = localStorage.getItem("LogedUser")
+//     const LogedUser = localStorage.getItem("LogedUser")
 
-    if(LogedUser){
+//     if(LogedUser){
         
-        logedCheker.innerHTML = `
-            <li class="nav-item nav justify-content-end dropdown none">
-            <a class="nav-link dropdown-toggle btn profile_img" data-bs-toggle="dropdown" role="button" aria-expanded="false" id="profile_img" ><img  src="/assets/img/ImagemUser.jpg" alt="" srcset="" ></a>
-            <ul class="dropdown-menu" >
-            <div id="profile_list">
+//         logedCheker.innerHTML = `
+//             <li class="nav-item nav justify-content-end dropdown none">
+//             <a class="nav-link dropdown-toggle btn profile_img" data-bs-toggle="dropdown" role="button" aria-expanded="false" id="profile_img" ><img  src="/assets/img/ImagemUser.jpg" alt="" srcset="" ></a>
+//             <ul class="dropdown-menu" >
+//             <div id="profile_list">
         
-            </div>
-            <li><hr class="dropdown-divider"></li>
-            <li><button class="dropdown-item" role="button" id="logout" onclick="logout()">Logout</button></li>
-            </ul>
-            </li> 
-        `
-        profileConstructor()
-        return
-    }else{
-        
-        
-        logedCheker.innerHTML = `
-          <div class="col-md-3 text-end">
-          <a href="/src/login/index.html" class="btn personal_btn me-2">Login</a>
-            </div>
-        `
-    }
+//             </div>
+//             <li><hr class="dropdown-divider"></li>
+//             <li><button class="dropdown-item" role="button" id="logout" onclick="logout()">Logout</button></li>
+//             </ul>
+//             </li> 
+//         `
+//         profileConstructor()
+//         return
+//     }else{       
+//         logedCheker.innerHTML = `
+//           <div class="col-md-3 text-end">
+//           <a href="/src/login/index.html" class="btn personal_btn me-2">Login</a>
+//             </div>
+//         `
+//         return
+//     }
     
  
-}
+// }
 
 
-inicialization()
+// inicialization()
 
 function profileConstructor(){
     const user = JSON.parse(localStorage.getItem("LogedUser"))
@@ -132,11 +131,7 @@ function profileConstructor(){
 
 
 $(document).ready(function() {
-
-
-
     $('#telefone').mask('(00)00000-0000', {
-
         placeholder:'(00)00000-0000'
     })
 
