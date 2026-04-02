@@ -1,3 +1,5 @@
+import footer from "../script/footerModule.js";
+
 const imageInput = document.getElementById('image-input');
 const profileImage = document.getElementById('profile-image');
 
@@ -75,3 +77,5 @@ profileLoad()
 
 // comentário final. seria possível construir a busca pela imagem do usuário. Porém, neste momento, manteremos apenas a vaquinha dançando já que será utilizada integração com o backend para isso futuramente. Esta é uma condição provisória.
 
+// este é um exemplo de modularização sugerida para a construção do footer. Como é uma repetição padrão, constuí o modulo e importei aqui. Ele funcionará em qq página que precisar do footer.
+footer()
