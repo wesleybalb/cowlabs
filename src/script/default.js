@@ -104,11 +104,11 @@ function profileConstructor(){
 
     const admin = document.querySelector(".Admin")
 
-    admin.addEventListener('click', function(){
-        location.href = "/src/adminView/index.html"
-
-    })
-
+    if (admin) {
+    admin.addEventListener("click", function () {
+        location.href = "/src/adminView/index.html";
+    });
+    }
     // document.querySelector("#perfil").addEventListener('click', function(){
     //     location.href = "/src/profile/dist/index.html"})
 }

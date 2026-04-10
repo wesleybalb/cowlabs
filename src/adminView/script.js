@@ -1,7 +1,9 @@
 function userInjection() {
     const usuariosRegistrados = JSON.parse(localStorage.getItem("RegisterUser"))
 
-    const users = document.getElementById("usuarios")
+   const users = document.getElementById("UserList")
+
+   if (!users) return;
 
     users.innerHTML = ""
 
@@ -14,10 +16,11 @@ function userInjection() {
     showUser()
 }
 
-console.log(document.getElementById("usuarios"))
+console.log(document.getElementById("UserList"))
 
 function clearPainel() {
-    const users = document.getElementById("usuarios")
+    const users = document.getElementById("UserList");
+    if (!users) return;
     users.innerHTML = ``
 
 }
@@ -25,33 +28,29 @@ function clearPainel() {
 
 
 function showUser() {
-    const usuariosRegistrados = JSON.parse(localStorage.getItem("RegisterUser"))
-    const userList = document.querySelectorAll(".usuarios")
-
-    userList.innerHTML = ""
-
-
+    const usuariosRegistrados = JSON.parse(localStorage.getItem("RegisterUser")) || [];
+    const userList = document.querySelectorAll(".usuarios");
 
     userList.forEach(function (usuario, index) {
-        usuario.addEventListener('click', function (e) {
-            const usuarioSelecionado = usuariosRegistrados[index]
-            console.log(usuario.name)
-            const credenciaisAlunos = document.querySelector('.credenciaisAlunos')
-            
+        usuario.addEventListener("click", function () {
+            const usuarioSelecionado = usuariosRegistrados[index];
+            if (!usuarioSelecionado) return;
+
+            console.log(usuarioSelecionado.name);
+
+            const credenciaisAlunos = document.querySelector(".credenciaisAlunos");
+            if (!credenciaisAlunos) return;
+
             credenciaisAlunos.innerHTML = `
-                <p class="d-none" id="UserSelected">${usuarioSelecionado.name}</p
+                <p class="d-none" id="UserSelected">${usuarioSelecionado.name}</p>
                 <br>${usuarioSelecionado.name}
                 <br>${usuarioSelecionado.email}
                 <br>${usuarioSelecionado.Realname}
                 <br>${usuarioSelecionado.curso}
-            `
-        })
-        
-        
-    })
-    
+            `;
+        });
+    });
 }
-
 
 
 function refresh() {
