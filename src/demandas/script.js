@@ -1,3 +1,5 @@
+import footer from "../script/footerModule.js"
+
 document.querySelector(`form`).addEventListener(`submit`, (e)=>{
     e.preventDefault()
     // buscar informações do usuário logado
@@ -217,3 +219,4 @@ cardConstructor()
 
 
 montademanda()
+footer()
