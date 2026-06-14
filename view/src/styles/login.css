@@ -1,0 +1,64 @@
+/* ============================================================
+   login.css  ·  Página de Login
+   Identidade base vem do default.css.
+   ============================================================ */
+
+.auth-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-deep) 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-topbar { padding: 28px 0; }
+
+.auth-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 16px 40px;
+}
+
+.auth-card {
+  background: var(--white);
+  width: 100%;
+  max-width: 420px;
+  padding: 40px;
+  border-radius: var(--radius-xl);
+}
+
+/* Inputs com ícone */
+.input-icon { position: relative; }
+.input-icon i {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+}
+.input-icon .form-control {
+  padding-left: 42px;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+}
+
+.link-muted { color: var(--text-muted); text-decoration: none; }
+.link-muted:hover { color: var(--primary); }
+.link-primary-brand { color: var(--primary); text-decoration: none; }
+.link-primary-brand:hover { text-decoration: underline; }
+
+/* Rodapé da auth */
+.auth-footer { color: rgba(255, 255, 255, 0.85); font-size: 0.85rem; margin-top: 28px; }
+.auth-footer a { color: var(--white); opacity: 0.8; font-size: 1.1rem; transition: var(--transition); }
+.auth-footer a:hover { color: var(--labs-light); opacity: 1; }
+
+/* Diálogo de sucesso */
+.login_dialog {
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: 32px 40px;
+  box-shadow: var(--shadow-md);
+}
+.login_dialog::backdrop { background: rgba(0, 26, 65, 0.45); }

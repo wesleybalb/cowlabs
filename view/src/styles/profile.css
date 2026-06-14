@@ -1,0 +1,65 @@
+/* profile.css — estilos específicos da página de perfil.
+   Variáveis de cor, tipografia e utilitários globais estão em default.css. */
+
+/* ── Hero de fundo ──────────────────────────────────────────────────────── */
+.profile-hero {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-deep) 100%);
+  height: 200px;
+  border-radius: 0 0 50px 50px;
+}
+
+/* ── Foto de perfil ─────────────────────────────────────────────────────── */
+.profile-pic-wrapper {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+}
+
+.profile-pic-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 5px solid white;
+}
+
+.upload-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  opacity: 0;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.profile-pic-wrapper:hover .upload-overlay {
+  opacity: 1;
+}
+
+/* ── Cards de métrica ───────────────────────────────────────────────────── */
+.metric-card {
+  transition: var(--transition);
+}
+.metric-card:hover {
+  transform: translateY(-5px);
+}
+
+/* ── Círculo de ícone (conquistas) ─────────────────────────────────────── */
+.icon-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.badge-item {
+  width: 100px;
+}

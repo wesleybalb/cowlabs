@@ -1,0 +1,59 @@
+/* ============================================================
+   register.css  ·  Página de Cadastro
+   Reaproveita .auth-page/.auth-card/.link-primary-brand do login
+   (definidos também aqui para a página funcionar isolada).
+   Identidade base vem do default.css.
+   ============================================================ */
+
+.auth-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-deep) 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-topbar { padding: 28px 0; }
+
+.auth-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 16px 50px;
+}
+
+.auth-card {
+  background: var(--white);
+  width: 100%;
+  max-width: 640px;   /* mais largo que o login por causa dos campos de endereço */
+  padding: 40px;
+  border-radius: var(--radius-xl);
+}
+
+/* Título de cada seção do formulário */
+.section-title {
+  font-weight: 700;
+  color: var(--primary);
+  border-bottom: 1px solid var(--border-soft);
+  padding-bottom: 8px;
+  margin-bottom: 4px;
+}
+
+.link-primary-brand { color: var(--primary); text-decoration: none; }
+.link-primary-brand:hover { text-decoration: underline; }
+
+/* Mensagem do validador de usuário (usada pelo register.js) */
+#UserCheckerMsg .LoginMsg {
+  font-size: 0.85rem;
+  color: var(--danger);
+  margin: 6px 0 0;
+}
+
+/* Remove as setinhas do input number do CPF */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] { -moz-appearance: textfield; }
