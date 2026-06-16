@@ -1,4 +1,5 @@
 import myModal from "../components/mymodal.js";
+import { API_URL } from "./api.js";
 
 document.querySelector("#login-form").addEventListener("submit", validaLogin);
 
@@ -21,7 +22,7 @@ async function validaLogin(e) {
     };
 
     try {
-        const response = await fetch("http://localhost:3000/login", {
+        const response = await fetch(`${API_URL}/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

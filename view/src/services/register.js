@@ -3,6 +3,7 @@
 
 // inseren event listener nos campos trackeados
 import myModal from "../components/mymodal.js";
+import { API_URL } from "./api.js";
 
 document.getElementById("User").addEventListener("change", () => inputCompare("User"));
 // document.getElementById("Email").addEventListener("change", () => inputCompare("Email"));
@@ -150,7 +151,7 @@ async function register(e) {
 
     try{
         //tenta executar essa parte, faz o fetch pegando a rota com POST, o body captura user,cpf e name
-        const respDB = await fetch("http://127.0.0.1:3000/users/verificaLogin",{
+        const respDB = await fetch(`${API_URL}/users/verificaLogin`,{
             method:"POST",
             headers:{
                 "Content-Type": "application/json"
@@ -173,7 +174,7 @@ async function register(e) {
     }
     async function createUser(){
         try {
-            const response = await fetch("http://localhost:3000/users/create", {
+            const response = await fetch(`${API_URL}/users/create`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
