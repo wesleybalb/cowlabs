@@ -62,3 +62,33 @@ body {
   border-bottom: 1px solid #f1f5f9;
 }
 .chamado-item:last-child { border-bottom: none; }
+
+/* Filtros TalkUs */
+.btn-xs {
+  padding: 2px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 20px;
+  border: 1.5px solid #e2e8f0;
+  background: transparent;
+  color: #64748b;
+  transition: all .15s;
+  white-space: nowrap;
+}
+.btn-xs:hover  { border-color: #006eff; color: #006eff; }
+.btn-xs.active { background: #006eff; border-color: #006eff; color: #fff; }
+
+/* Paginação TalkUs */
+.talkus-page-btn {
+  background: none;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 2px 9px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  transition: all .15s;
+}
+.talkus-page-btn:hover:not(:disabled) { border-color: #006eff; color: #006eff; }
+.talkus-page-btn:disabled { opacity: .35; cursor: default; }

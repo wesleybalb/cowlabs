@@ -101,13 +101,32 @@
         <!-- TalkUs recentes -->
         <div class="col-lg-5">
           <div class="card border-0 shadow-sm rounded-4 p-4 h-100 d-flex flex-column">
-            <h5 class="fw-800 mb-4">Últimas do TalkUs</h5>
-            <div id="talkus-list" class="flex-grow-1 overflow-auto" style="max-height:380px">
+
+            <div class="d-flex align-items-center justify-content-between gap-2 mb-3">
+              <h5 class="fw-800 mb-0">TalkUs</h5>
+              <div class="input-group input-group-sm" style="max-width:160px">
+                <span class="input-group-text bg-light border-0"><i class="bi bi-search text-muted"></i></span>
+                <input type="text" id="talkus-search" class="form-control border-0 bg-light"
+                  placeholder="Nome ou e-mail…" autocomplete="off">
+              </div>
+            </div>
+
+            <div class="d-flex gap-1 mb-3 flex-wrap" id="talkus-filters">
+              <button class="btn btn-xs talkus-filter-btn active" data-status="">Todos</button>
+              <button class="btn btn-xs talkus-filter-btn" data-status="aberto">Aberto</button>
+              <button class="btn btn-xs talkus-filter-btn" data-status="em análise">Em análise</button>
+              <button class="btn btn-xs talkus-filter-btn" data-status="resolvido">Resolvido</button>
+            </div>
+
+            <div id="talkus-list" class="flex-grow-1 overflow-auto" style="max-height:300px">
               <div class="text-center text-muted py-4 small">
                 <i class="bi bi-arrow-clockwise fs-2 d-block mb-2 opacity-25"></i>
                 Carregando...
               </div>
             </div>
+
+            <div id="talkus-pagination" class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top small text-muted" style="min-height:32px"></div>
+
           </div>
         </div>
 

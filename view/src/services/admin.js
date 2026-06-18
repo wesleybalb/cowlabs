@@ -287,6 +287,11 @@ window.excluirUsuario = async function (id, nome) {
 
 // ── TalkUs / Chamados ────────────────────────────────────────────────────────
 
+let _talkusPage   = 1;
+let _talkusFilter = "";
+let _talkusSearch = "";
+let _talkusBound  = false;
+
 function statusBadge(status) {
   const s = (status || "").toLowerCase();
   if (s === "resolvido")   return `<span class="badge bg-success">Resolvido</span>`;
@@ -295,12 +300,74 @@ function statusBadge(status) {
   return `<span class="badge bg-secondary">Sem status</span>`;
 }
 
+function bindTalkusControls() {
+  if (_talkusBound) return;
+  _talkusBound = true;
+
+  // Filtros de status
+  document.getElementById("talkus-filters")?.addEventListener("click", (e) => {
+    const btn = e.target.closest(".talkus-filter-btn");
+    if (!btn) return;
+    document.querySelectorAll(".talkus-filter-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    _talkusFilter = btn.dataset.status;
+    _talkusPage   = 1;
+    carregarChamados(_adminToken);
+  });
+
+  // Busca por nome / e-mail
+  let _searchTimer;
+  document.getElementById("talkus-search")?.addEventListener("input", (e) => {
+    clearTimeout(_searchTimer);
+    _searchTimer = setTimeout(() => {
+      _talkusSearch = e.target.value.trim().toLowerCase();
+      _talkusPage   = 1;
+      carregarChamados(_adminToken);
+    }, 300);
+  });
+}
+
+function renderTalkusPagination(paginacao, totalFiltrado, totalPagina) {
+  const el = document.getElementById("talkus-pagination");
+  if (!el) return;
+
+  const currentPage = paginacao?.currentPage ?? _talkusPage;
+  const totalPages  = paginacao?.pages ?? 1;
+  const hasPrev     = currentPage > 1;
+  const hasNext     = currentPage < totalPages;
+
+  const filtroAtivo = _talkusFilter || _talkusSearch;
+  const countLabel  = filtroAtivo
+    ? `<span>${totalFiltrado} de ${totalPagina} nesta página</span>`
+    : `<span>Página ${currentPage} de ${totalPages}</span>`;
+
+  el.innerHTML = `
+    ${countLabel}
+    <div class="d-flex gap-1">
+      <button class="talkus-page-btn" id="talkus-prev" ${hasPrev ? "" : "disabled"}>
+        <i class="bi bi-chevron-left"></i>
+      </button>
+      <button class="talkus-page-btn" id="talkus-next" ${hasNext ? "" : "disabled"}>
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>`;
+
+  el.querySelector("#talkus-prev")?.addEventListener("click", () => {
+    if (_talkusPage > 1) { _talkusPage--; carregarChamados(_adminToken); }
+  });
+  el.querySelector("#talkus-next")?.addEventListener("click", () => {
+    if (_talkusPage < totalPages) { _talkusPage++; carregarChamados(_adminToken); }
+  });
+}
+
 async function carregarChamados(token) {
   const list = document.getElementById("talkus-list");
   if (!list) return;
 
+  bindTalkusControls();
+
   try {
-    const res = await fetch(`${API_URL}/admin/chamados?page=1`, {
+    const res = await fetch(`${API_URL}/admin/chamados?page=${_talkusPage}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
 
@@ -308,8 +375,8 @@ async function carregarChamados(token) {
 
     const { dados, paginacao } = await res.json();
 
-    // Atualiza KPI
-    const total  = paginacao?.total ?? dados?.length ?? 0;
+    // KPI usa total geral (sempre página 1 para contar abertos)
+    const total   = paginacao?.total ?? dados?.length ?? 0;
     const abertos = (dados || []).filter(c => (c.chamado_status || "").toLowerCase() === "aberto").length;
     setKPI("kpi-talkus", total.toLocaleString("pt-BR"));
     setKPI("kpi-talkus-sub", `${abertos} aberto${abertos !== 1 ? "s" : ""} agora`);
@@ -317,19 +384,29 @@ async function carregarChamados(token) {
     const badge = document.getElementById("kpi-talkus-badge");
     if (badge) badge.textContent = abertos > 0 ? abertos : "";
 
-    if (!dados || dados.length === 0) {
-      list.innerHTML = `<div class="text-center text-muted py-4 small">Nenhum chamado registrado.</div>`;
+    // Aplica filtros client-side
+    const filtrados = (dados || []).filter(c => {
+      const statusOk = !_talkusFilter || (c.chamado_status || "").toLowerCase() === _talkusFilter;
+      const searchOk = !_talkusSearch ||
+        (c.chamado_user_name  || "").toLowerCase().includes(_talkusSearch) ||
+        (c.chamado_user_email || "").toLowerCase().includes(_talkusSearch);
+      return statusOk && searchOk;
+    });
+
+    if (filtrados.length === 0) {
+      list.innerHTML = `<div class="text-center text-muted py-4 small">Nenhum chamado encontrado.</div>`;
+      renderTalkusPagination(paginacao, 0, (dados || []).length);
       return;
     }
 
     _chamadosMap.clear();
-    dados.forEach(c => _chamadosMap.set(c.chamado_id, c));
+    filtrados.forEach(c => _chamadosMap.set(c.chamado_id, c));
 
-    list.innerHTML = dados.map((c) => {
-      const initials  = esc(getInitials(c.chamado_user_name || "?"));
+    list.innerHTML = filtrados.map((c) => {
+      const initials    = esc(getInitials(c.chamado_user_name || "?"));
       const rawConteudo = c.chamado_content || "";
-      const truncado  = rawConteudo.length > 60 ? rawConteudo.slice(0, 60) + "…" : rawConteudo;
-      const conteudo  = truncado
+      const truncado    = rawConteudo.length > 60 ? rawConteudo.slice(0, 60) + "…" : rawConteudo;
+      const conteudo    = truncado
         ? esc(truncado)
         : "<span class='text-muted fst-italic'>Sem conteúdo</span>";
 
@@ -351,6 +428,8 @@ async function carregarChamados(token) {
     list.querySelectorAll("[data-chamado-id]").forEach(el => {
       el.addEventListener("click", () => abrirChamado(Number(el.dataset.chamadoId)));
     });
+
+    renderTalkusPagination(paginacao, filtrados.length, (dados || []).length);
 
   } catch (e) {
     console.error("Erro ao carregar chamados:", e);
