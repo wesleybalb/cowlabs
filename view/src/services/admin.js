@@ -497,7 +497,10 @@ window.responderChamado = async function () {
     try {
       const mailRes = await fetch(`${API_URL}/mailer/${_chamadoAtual.chamado_id}`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${_adminToken}`,
+        },
         body: JSON.stringify({ email_content: resp }),
       });
       emailOk = mailRes.ok;
