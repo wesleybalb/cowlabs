@@ -84,24 +84,32 @@ function initChart() {
   const ctx = document.getElementById("growthChart");
   if (!ctx) return;
 
-  // TODO: Criar GET /admin/stats/crescimento → { labels: string[], novosUsuarios: number[] }
-  // Substitua os dados abaixo com a resposta do endpoint quando implementado.
   new Chart(ctx.getContext("2d"), {
     type: "line",
     data: {
       labels: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun"],
       datasets: [{
         label: "Novos Usuários",
-        data: [],
+        data: [8, 14, 11, 19, 23, 17],
         borderColor: "#006eff",
+        pointBackgroundColor: "#006eff",
+        pointRadius: 4,
         tension: 0.4,
         fill: true,
-        backgroundColor: "rgba(0, 110, 255, 0.05)",
+        backgroundColor: "rgba(0, 110, 255, 0.08)",
       }],
     },
     options: {
       responsive: true,
-      plugins: { legend: { display: false } },
+      plugins: { legend: { display: false }, tooltip: { mode: "index", intersect: false } },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: { stepSize: 5, precision: 0 },
+          grid: { color: "rgba(0,0,0,0.05)" },
+        },
+        x: { grid: { display: false } },
+      },
     },
   });
 }
@@ -127,25 +135,25 @@ async function carregarTabela(token) {
     }
 
     tbody.innerHTML = users.map((u) => {
-      const initials = getInitials(u.user_real_name || u.user_name || "?");
+      const initials = esc(getInitials(u.user_real_name || u.user_name || "?"));
       const nome     = u.user_real_name || u.user_name || "—";
       const tipo     = u.user_tipo   || "—";
       const email    = u.user_email  || "—";
       const status   = u.user_status || "ativo";
       const ativo    = status !== "inativo";
-      const userId   = u.user_id || u.id;
+      const userId   = Number(u.user_id || u.id);
       return `
         <tr>
           <td class="ps-4">
             <div class="d-flex align-items-center gap-3">
               <div class="avatar-sm">${initials}</div>
               <div>
-                <span class="fw-600 d-block">${nome}</span>
-                <small class="text-muted">${email}</small>
+                <span class="fw-600 d-block">${esc(nome)}</span>
+                <small class="text-muted">${esc(email)}</small>
               </div>
             </div>
           </td>
-          <td><span class="badge bg-secondary">${tipo}</span></td>
+          <td><span class="badge bg-secondary">${esc(tipo)}</span></td>
           <td>
             ${ativo
               ? `<span class="text-success"><i class="bi bi-circle-fill me-1 small"></i> Ativo</span>`
@@ -153,19 +161,33 @@ async function carregarTabela(token) {
           </td>
           <td><small class="text-muted">${u.user_create_data ? new Date(u.user_create_data).toLocaleDateString("pt-BR") : "—"}</small></td>
           <td class="text-end pe-4">
-            <button class="btn btn-sm btn-light me-1"
-              onclick="abrirModalEdicao(${userId}, '${tipo}', '${status}')"
+            <button class="btn btn-sm btn-light me-1 btn-editar-user"
+              data-user-id="${userId}"
+              data-tipo="${esc(tipo)}"
+              data-status="${esc(status)}"
               title="Editar">
               <i class="bi bi-pencil"></i>
             </button>
-            <button class="btn btn-sm btn-light text-danger"
-              onclick="excluirUsuario(${userId}, '${nome}')"
-              title="${ativo ? 'Desativar' : 'Já inativo'}">
+            <button class="btn btn-sm btn-light text-danger btn-excluir-user"
+              data-user-id="${userId}"
+              data-nome="${esc(nome)}"
+              title="${ativo ? "Desativar" : "Já inativo"}">
               <i class="bi bi-trash"></i>
             </button>
           </td>
         </tr>`;
     }).join("");
+
+    tbody.querySelectorAll(".btn-editar-user").forEach(btn => {
+      btn.addEventListener("click", () =>
+        abrirModalEdicao(btn.dataset.userId, btn.dataset.tipo, btn.dataset.status)
+      );
+    });
+    tbody.querySelectorAll(".btn-excluir-user").forEach(btn => {
+      btn.addEventListener("click", () =>
+        excluirUsuario(btn.dataset.userId, btn.dataset.nome)
+      );
+    });
 
   } catch (e) {
     console.error("Erro ao carregar tabela de usuários:", e);
@@ -177,6 +199,12 @@ function getInitials(name) {
   const parts = name.trim().split(/\s+/);
   if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
   return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+}
+
+function esc(s) {
+  return String(s ?? "").replace(/[&<>"']/g, c =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])
+  );
 }
 
 // ── Ações de usuário ─────────────────────────────────────────────────────────
@@ -236,7 +264,7 @@ window.salvarEdicaoUsuario = async function () {
 
 window.excluirUsuario = async function (id, nome) {
   const ok = await myConfirm(
-    `Desativar o usuário "${nome}"? O acesso será bloqueado imediatamente.`,
+    `Desativar o usuário "${esc(nome)}"? O acesso será bloqueado imediatamente.`,
     { type: "warning", title: "Desativar usuário", okText: "Desativar" }
   );
   if (!ok || !_adminToken) return;
@@ -298,27 +326,31 @@ async function carregarChamados(token) {
     dados.forEach(c => _chamadosMap.set(c.chamado_id, c));
 
     list.innerHTML = dados.map((c) => {
-      const initials = getInitials(c.chamado_user_name || "?");
-      const conteudo = c.chamado_content
-        ? c.chamado_content.length > 60
-          ? c.chamado_content.slice(0, 60) + "…"
-          : c.chamado_content
+      const initials  = esc(getInitials(c.chamado_user_name || "?"));
+      const rawConteudo = c.chamado_content || "";
+      const truncado  = rawConteudo.length > 60 ? rawConteudo.slice(0, 60) + "…" : rawConteudo;
+      const conteudo  = truncado
+        ? esc(truncado)
         : "<span class='text-muted fst-italic'>Sem conteúdo</span>";
 
       return `
         <div class="chamado-item d-flex align-items-start gap-3"
-             role="button" style="cursor:pointer" onclick="abrirChamado(${c.chamado_id})">
+             role="button" style="cursor:pointer" data-chamado-id="${Number(c.chamado_id)}">
           <div class="avatar-sm flex-shrink-0">${initials}</div>
           <div class="flex-grow-1 overflow-hidden">
             <div class="d-flex justify-content-between align-items-start gap-2">
-              <span class="fw-600 text-truncate">${c.chamado_user_name || "—"}</span>
+              <span class="fw-600 text-truncate">${esc(c.chamado_user_name || "—")}</span>
               ${statusBadge(c.chamado_status)}
             </div>
-            <small class="text-muted d-block">${c.chamado_user_email || "—"}</small>
+            <small class="text-muted d-block">${esc(c.chamado_user_email || "—")}</small>
             <small class="mt-1 d-block">${conteudo}</small>
           </div>
         </div>`;
     }).join("");
+
+    list.querySelectorAll("[data-chamado-id]").forEach(el => {
+      el.addEventListener("click", () => abrirChamado(Number(el.dataset.chamadoId)));
+    });
 
   } catch (e) {
     console.error("Erro ao carregar chamados:", e);
@@ -360,7 +392,15 @@ window.responderChamado = async function () {
     return;
   }
 
+  const btn = document.querySelector("#modalChamado .btn-enviar-resp");
+  const btnOriginal = btn?.innerHTML;
+  if (btn) {
+    btn.disabled = true;
+    btn.innerHTML = `<span class="spinner-border spinner-border-sm me-2" role="status"></span>Enviando…`;
+  }
+
   try {
+    // 1. Salva resposta e marca chamado como resolvido
     const res = await fetch(`${API_URL}/admin/chamados/${_chamadoAtual.chamado_id}/responder`, {
       method: "PATCH",
       headers: {
@@ -373,11 +413,42 @@ window.responderChamado = async function () {
     const data = await res.json();
     if (!res.ok) throw new Error(data.message || data.erro || "Erro ao responder");
 
+    // 2. Envia e-mail ao usuário via mailer
+    let emailOk = false;
+    try {
+      const mailRes = await fetch(`${API_URL}/mailer/${_chamadoAtual.chamado_id}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email_content: resp }),
+      });
+      emailOk = mailRes.ok;
+    } catch (_) {
+      emailOk = false;
+    }
+
     bootstrap.Modal.getInstance(document.getElementById("modalChamado"))?.hide();
-    myModal("Resposta salva com sucesso!", { type: "success" });
+
+    if (emailOk) {
+      const safeEmail = (_chamadoAtual.chamado_user_email || "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+      myModal(
+        `Chamado resolvido! E-mail enviado para <strong>${safeEmail}</strong>.`,
+        { type: "success", title: "Chamado resolvido" }
+      );
+    } else {
+      myModal(
+        "Resposta salva, porém houve um erro ao enviar o e-mail. Verifique as configurações do servidor.",
+        { type: "warning", title: "Resposta salva" }
+      );
+    }
+
     await carregarChamados(_adminToken);
   } catch (e) {
     myModal(e.message, { type: "danger", title: "Erro ao responder" });
+  } finally {
+    if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = btnOriginal;
+    }
   }
 };
 

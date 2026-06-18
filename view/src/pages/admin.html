@@ -177,13 +177,13 @@
           <!-- Mensagem -->
           <div class="mb-3">
             <p class="small text-uppercase text-muted fw-600 mb-1">Mensagem</p>
-            <p id="chamado-content" class="mb-0"></p>
+            <p id="chamado-content" class="mb-0" style="word-break:break-word;overflow-wrap:anywhere;white-space:pre-wrap;"></p>
           </div>
 
           <!-- Resposta anterior (visível se já respondido) -->
           <div id="chamado-resp-existente" class="mb-3 d-none">
             <p class="small text-uppercase text-muted fw-600 mb-1">Resposta enviada</p>
-            <p id="chamado-resp-texto" class="mb-0 text-success"></p>
+            <p id="chamado-resp-texto" class="mb-0 text-success" style="word-break:break-word;overflow-wrap:anywhere;white-space:pre-wrap;"></p>
           </div>
 
           <!-- Campo de nova resposta -->
@@ -191,9 +191,12 @@
             <label class="form-label fw-600">Resposta</label>
             <textarea class="form-control" id="chamado-resp-input" rows="3"
               placeholder="Digite a resposta para o usuário..."></textarea>
+            <small class="text-muted mt-1 d-block">
+              <i class="bi bi-envelope me-1"></i>A resposta será enviada por e-mail ao solicitante automaticamente.
+            </small>
           </div>
-          <button type="button" class="btn btn-primary w-100 py-2" onclick="responderChamado()">
-            <i class="bi bi-send me-2"></i>Salvar resposta
+          <button type="button" class="btn btn-primary w-100 py-2 btn-enviar-resp" onclick="responderChamado()">
+            <i class="bi bi-send me-2"></i>Salvar e enviar e-mail
           </button>
 
         </div>
