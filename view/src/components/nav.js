@@ -5,8 +5,10 @@
 // Comportamento:
 //  - Menu hambúrguer responsivo (Bootstrap collapse).
 //  - Verifica se há usuário logado (sessionStorage via auth.js).
-//  - Logado     -> "Olá, <nome>" + avatar (imagem de perfil OU iniciais).
-//  - Deslogado  -> botão "Entrar / Cadastrar".
+//  - Logado     -> avatar fora do collapse (sempre visível no mobile).
+//                 Dropdown posicionado pelo lado direito da tela.
+//                 Busca imagem atualizada da API após montar.
+//  - Deslogado  -> botão "Entrar / Cadastrar" dentro do collapse.
 //  - Marca automaticamente o link ativo conforme a URL atual.
 //
 // Uso na página:
@@ -16,10 +18,9 @@
 //   </script>
 // ============================================================
 
-import { getLoggedUser } from "../services/auth.js";
+import { getLoggedUser, getToken } from "../services/auth.js";
+import { API_URL } from "../services/api.js";
 
-// Rotas centrais do site (caminhos absolutos a partir da raiz servida).
-// Altere AQUI e reflete em todas as páginas.
 export const ROUTES = {
   home:      "/view/public/index.html",
   demandas:  "/view/src/pages/brickwall.html",
@@ -32,7 +33,6 @@ export const ROUTES = {
   admin:     "/view/src/pages/admin.html",
 };
 
-// Links principais exibidos no centro da navbar.
 const MAIN_LINKS = [
   { label: "Início",       href: ROUTES.home },
   { label: "Demandas",     href: ROUTES.demandas },
@@ -42,24 +42,13 @@ const MAIN_LINKS = [
 
 // ---------- Helpers ----------
 
-// Nome a ser exibido, com a mesma cascata de fallback do resto do projeto.
 function getDisplayName(user) {
   const full = user.user_real_name || user.user_name;
   if (full) return full;
-  if (user.email) return user.email.split("@")[0]; // antes do @
+  if (user.email) return user.email.split("@")[0];
   return "Usuário";
 }
 
-// Iniciais a partir do nome (1ª letra do primeiro e do último nome).
-function getInitials(name) {
-  const parts = name.trim().split(/\s+/).filter(Boolean);
-  if (parts.length === 0) return "U";
-  if (parts.length === 1) return parts[0].slice(0, 2);
-  return (parts[0][0] + parts[parts.length - 1][0]);
-}
-
-// Procura por uma imagem de perfil definida pelo usuário (campos possíveis
-// que o backend poderá enviar futuramente). Sem isso -> usa iniciais.
 function getProfileImage(user) {
   return (
     user.user_img ||
@@ -70,21 +59,18 @@ function getProfileImage(user) {
   );
 }
 
-// Avatar: <img> com foto real ou avatar gerado pelo ui-avatars como fallback.
 function avatarHTML(user, name) {
   const img = getProfileImage(user);
   const src = img || `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&size=40&background=006eff&color=fff`;
-  return `<span class="cl-avatar"><img src="${src}" alt="${name}"></span>`;
+  return `<span class="cl-avatar"><img src="${src}" alt="${name}" id="cl-nav-avatar-img"></span>`;
 }
 
-// Marca o link cuja href corresponde à página atual.
 function isActive(href) {
   const current = window.location.pathname.replace(/\/index\.html?$/, "/");
   const target = href.replace(/\/index\.html?$/, "/");
   return current === target || window.location.pathname === href;
 }
 
-// Itens extras do dropdown conforme o tipo do usuário.
 function roleLinks(user) {
   const tipo = (user.user_tipo || user.tipo || "").toLowerCase();
   let extra = "";
@@ -111,14 +97,15 @@ function navHTML() {
        </li>`
   ).join("");
 
-  // Lado direito: usuário logado x visitante.
-  let rightSide;
   if (user) {
     const name = getDisplayName(user);
-    rightSide = `
+
+    // Avatar sempre visível fora do collapse.
+    // dropdown-menu-end abre para a esquerda a partir do lado direito da tela → sem overflow.
+    const userDropdown = `
       <div class="dropdown cl-user-menu">
         <button class="cl-user-chip" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <span class="cl-greeting d-none d-sm-block text-start">
+          <span class="cl-greeting d-none d-lg-block text-start">
             Olá,<strong>${name}</strong>
           </span>
           ${avatarHTML(user, name)}
@@ -133,10 +120,33 @@ function navHTML() {
             <i class="bi bi-box-arrow-right me-2"></i>Sair</button></li>
         </ul>
       </div>`;
-  } else {
-    rightSide = `<a href="${ROUTES.login}" class="btn btn-light-outline">Entrar / Cadastrar</a>`;
+
+    return `
+      <nav class="navbar navbar-expand-lg navbar-dark bg-brand-solid sticky-top py-3 cl-navbar">
+        <div class="container">
+          <a class="logo-font" href="${ROUTES.home}">Cow<span>Labs</span></a>
+
+          <!-- Links de navegação (collapse no mobile) -->
+          <div class="collapse navbar-collapse" id="clNavMain">
+            <ul class="navbar-nav mx-auto">
+              ${links}
+            </ul>
+          </div>
+
+          <!-- Avatar + hambúrguer: sempre visíveis fora do collapse -->
+          <div class="d-flex align-items-center gap-2">
+            ${userDropdown}
+            <button class="navbar-toggler border-0 d-lg-none ms-1" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#clNavMain"
+                    aria-controls="clNavMain" aria-expanded="false" aria-label="Abrir menu">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        </div>
+      </nav>`;
   }
 
+  // Deslogado: botão "Entrar" dentro do collapse (mobile) ou inline (desktop)
   return `
     <nav class="navbar navbar-expand-lg navbar-dark bg-brand-solid sticky-top py-3 cl-navbar">
       <div class="container">
@@ -153,14 +163,43 @@ function navHTML() {
             ${links}
           </ul>
           <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0">
-            ${rightSide}
+            <a href="${ROUTES.login}" class="btn btn-light-outline">Entrar / Cadastrar</a>
           </div>
         </div>
       </div>
     </nav>`;
 }
 
-// Logout padrão (limpa sessão e volta ao login).
+// ---------- Fetch de imagem atualizada (igual ao profile.js) ----------
+
+async function refreshAvatar() {
+  const user = getLoggedUser();
+  const token = getToken();
+  if (!user || !token) return;
+
+  try {
+    const res = await fetch(`${API_URL}/users/${user.id}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    if (!res.ok) return;
+
+    const users = await res.json();
+    const fresh = users[0];
+    if (!fresh) return;
+
+    const savedImg = fresh.user_img || fresh.user_image || fresh.profile_img || fresh.foto;
+    if (!savedImg) return;
+
+    const imgEl = document.getElementById("cl-nav-avatar-img");
+    if (imgEl) imgEl.src = savedImg;
+
+  } catch {
+    // silencioso — fallback do ui-avatars permanece
+  }
+}
+
+// ---------- Logout ----------
+
 function bindLogout() {
   const btn = document.getElementById("cl-logout");
   if (!btn) return;
@@ -171,8 +210,9 @@ function bindLogout() {
   });
 }
 
-// Monta a navbar: usa um <div id="nav-root"> se existir; senão insere no topo do body.
-export default function nav() {
+// ---------- Montagem ----------
+
+export default async function nav() {
   const markup = navHTML();
   const root = document.getElementById("nav-root");
   if (root) {
@@ -181,4 +221,5 @@ export default function nav() {
     document.body.insertAdjacentHTML("afterbegin", markup);
   }
   bindLogout();
+  refreshAvatar(); // não bloqueia a renderização
 }
